@@ -56,11 +56,10 @@ export function FaqAccordionSection() {
   };
 
   return (
-    <section className="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-12 lg:py-16">
-      {/* Header */}
+    <section className="w-full px-4 sm:px-6 lg:px-8 xl:px-15 mx-auto py-12 lg:py-16">
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
         <div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1E1E1E] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-text-dark tracking-tight">
             Frequently Asked Questions
           </h2>
         </div>
@@ -70,7 +69,6 @@ export function FaqAccordionSection() {
         </p>
       </div>
 
-      {/* Accordion Items List */}
       <div className="space-y-3.5 max-w-5xl mx-auto">
         {FAQS.map((faq) => {
           const isOpen = openId === faq.id;
@@ -88,7 +86,7 @@ export function FaqAccordionSection() {
                 onClick={() => toggle(faq.id)}
                 className="w-full flex items-center justify-between p-5 sm:p-6 text-left cursor-pointer focus:outline-none"
               >
-                <span className="text-sm sm:text-base font-bold text-[#1E1E1E] pr-4">
+                <span className="text-sm sm:text-base font-bold text-text-dark pr-4">
                   {faq.question}
                 </span>
 

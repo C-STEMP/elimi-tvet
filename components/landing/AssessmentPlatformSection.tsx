@@ -5,27 +5,23 @@ import Image from "next/image";
 
 export function AssessmentPlatformSection() {
   return (
-    <section className="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-8 sm:py-12">
-      {/* Soft Rose Background Container */}
+    <section className="w-full px-4 sm:px-6 lg:px-8 xl:px-15 mx-auto py-8 sm:py-12">
       <div className="rounded-[28px] sm:rounded-[36px] bg-[#FCEDF1] border border-[#FAD8E0] p-6 sm:p-10 lg:p-12">
-        {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10">
           <div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#1E1E1E] tracking-tight leading-tight max-w-lg">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-text-dark tracking-tight leading-tight max-w-lg">
               Get Assessed With Our <br className="hidden sm:inline" />
               Competency Assessment Platform
             </h2>
           </div>
           <p className="text-xs sm:text-sm text-gray-600 max-w-md sm:text-right leading-relaxed font-normal">
-            Lorem ipsum dolor sit amet consectetur. Pellentesque vel quam in nisl
-            pretium non dui scelerisque varius tristique mollis vitae.
+            Lorem ipsum dolor sit amet consectetur. Pellentesque vel quam in
+            nisl pretium non dui scelerisque varius tristique mollis vitae.
           </p>
         </div>
 
-        {/* Two Large Cards: Standard Assessment (Burgundy) & RPL (Orange) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          {/* Card 1: Standard Assessment */}
-          <div className="rounded-2xl bg-[#75152B] p-6 sm:p-8 text-white flex flex-col justify-between shadow-md relative overflow-hidden">
+          <div className="rounded-2xl bg-primary-solid p-6 sm:p-8 text-white flex flex-col justify-between shadow-md relative overflow-hidden">
             <div>
               <h3 className="text-xl sm:text-2xl font-bold tracking-tight">
                 Standard Assessment
@@ -61,7 +57,7 @@ export function AssessmentPlatformSection() {
                 href="https://cap.e-limi.africa/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block rounded-xl bg-white px-7 py-2.5 text-xs sm:text-sm font-bold text-[#75152B] hover:bg-gray-100 shadow-sm transition-all cursor-pointer"
+                className="inline-block rounded-xl bg-white px-7 py-2.5 text-xs sm:text-sm font-bold text-primary-solid hover:bg-gray-100 shadow-sm transition-all cursor-pointer"
               >
                 Start Assessment
               </a>
@@ -69,7 +65,7 @@ export function AssessmentPlatformSection() {
           </div>
 
           {/* Card 2: RPL - Recognition Of Prior Learning */}
-          <div className="rounded-2xl bg-[#F9A825] p-6 sm:p-8 text-white flex flex-col justify-between shadow-md relative overflow-hidden">
+          <div className="rounded-2xl bg-secondary p-6 sm:p-8 text-white flex flex-col justify-between shadow-md relative overflow-hidden">
             <div>
               <h3 className="text-xl sm:text-2xl font-bold tracking-tight">
                 RPL - Recognition Of Prior Learning
@@ -105,7 +101,7 @@ export function AssessmentPlatformSection() {
                 href="https://cap.e-limi.africa/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block rounded-xl bg-white px-7 py-2.5 text-xs sm:text-sm font-bold text-[#D97D00] hover:bg-gray-100 shadow-sm transition-all cursor-pointer"
+                className="inline-block rounded-xl bg-white px-7 py-2.5 text-xs sm:text-sm font-bold text-secondary hover:bg-gray-100 shadow-sm transition-all cursor-pointer"
               >
                 Get Assessed
               </a>
@@ -113,7 +109,6 @@ export function AssessmentPlatformSection() {
           </div>
         </div>
 
-        {/* Panoramic Workshop Photo Banner */}
         <div className="relative w-full h-56 sm:h-72 md:h-84 rounded-2xl overflow-hidden shadow-sm">
           <Image
             src="/landing-img-1.jpg"

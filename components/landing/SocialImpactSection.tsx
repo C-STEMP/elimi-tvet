@@ -36,11 +36,10 @@ const TESTIMONIALS: Testimonial[] = [
 
 export function SocialImpactSection() {
   return (
-    <section className="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-12 lg:py-16">
-      {/* Header */}
+    <section className="w-full px-4 sm:px-6 lg:px-8 xl:px-15 mx-auto py-12 lg:py-16">
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
         <div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1E1E1E] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-text-dark tracking-tight">
             Our Positive Social Impact
           </h2>
         </div>
@@ -50,7 +49,6 @@ export function SocialImpactSection() {
         </p>
       </div>
 
-      {/* 3 Testimonial Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {TESTIMONIALS.map((t) => (
           <div
@@ -58,20 +56,17 @@ export function SocialImpactSection() {
             className="rounded-2xl border border-rose-100 bg-[#FCF8F9] p-6 sm:p-7 flex flex-col justify-between shadow-xs hover:shadow-md transition-all"
           >
             <div>
-              {/* Star Rating */}
-              <div className="flex items-center gap-1 text-[#F9A825] mb-4">
+              <div className="flex items-center gap-1 text-secondary mb-4">
                 {[...Array(5)].map((_, i) => (
                   <HiStar key={i} className="w-4 h-4 fill-current" />
                 ))}
               </div>
 
-              {/* Quote */}
               <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-normal">
                 {t.quote}
               </p>
             </div>
 
-            {/* Author */}
             <div className="mt-6 pt-4 border-t border-gray-200/60">
               <h4 className="text-sm font-bold text-gray-900">{t.name}</h4>
               <p className="text-[11px] text-gray-500 font-medium mt-0.5 leading-snug">

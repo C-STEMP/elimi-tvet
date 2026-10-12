@@ -34,9 +34,9 @@ import bookOpenIcon from "@/assets/icons/book-open.svg";
 import quizIcon from "@/assets/icons/quiz.svg";
 import briefcaseIcon from "@/assets/icons/brief-case.svg";
 
-import heroImg1 from "@/public/hero-img-1.jpg";
-import heroImg2 from "@/public/hero-img-2.jpg";
-import heroImg3 from "@/public/hero-img-3.jpg";
+import heroImg1 from "@/assets/images/hero-img-1.png";
+import heroImg2 from "@/assets/images/hero-img-2.png";
+import heroImg3 from "@/assets/images/hero-img-3.png";
 import heroImg4 from "@/public/hero-img-4.jpg";
 import landingImg1 from "@/public/landing-img-1.jpg";
 import deactivateStaffImg from "@/assets/icons/deactivate.svg";

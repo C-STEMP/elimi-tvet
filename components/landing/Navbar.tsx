@@ -65,7 +65,7 @@ export function Navbar({ onOpenAuthModal }: NavbarProps) {
         scrolled ? "shadow-lg bg-[#661126]/95 backdrop-blur-md" : ""
       }`}
     >
-      <div className="mx-auto flex w-full items-center justify-between px-4 lg:px-8 xl:px-16">
+      <div className="mx-auto flex w-full items-center justify-between px-4 lg:px-8">
         {/* Brand Logo */}
         <Link
           href="/"
@@ -92,10 +92,10 @@ export function Navbar({ onOpenAuthModal }: NavbarProps) {
                 key={link.label}
                 href={link.href}
                 onClick={() => setActiveLink(link.href)}
-                className={`whitespace-nowrap text-xs lg:text-sm xl:text-base transition-colors ${
+                className={`whitespace-nowrap text-xs lg:text-sm xl:text-base font-medium transition-colors ${
                   isActive
                     ? "text-secondary font-bold"
-                    : "text-white/90 font-medium hover:text-secondary"
+                    : "text-[#333333] font-medium hover:text-secondary"
                 }`}
               >
                 {link.label}
@@ -170,7 +170,7 @@ export function Navbar({ onOpenAuthModal }: NavbarProps) {
                   className={`py-1 text-base transition-colors ${
                     isActive
                       ? "text-secondary font-bold"
-                      : "text-white/90 font-medium hover:text-secondary"
+                      : "text-[#333333] font-medium hover:text-secondary"
                   }`}
                 >
                   {link.label}

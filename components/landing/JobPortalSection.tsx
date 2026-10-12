@@ -5,13 +5,11 @@ import Image from "next/image";
 
 export function JobPortalSection() {
   return (
-    <section className="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-8 sm:py-12">
-      {/* Light Gray Container */}
+    <section className="w-full px-4 sm:px-6 lg:px-8 xl:px-15 mx-auto py-8 sm:py-12">
       <div className="rounded-[28px] sm:rounded-[36px] bg-[#F4F6F9] border border-gray-200/60 p-6 sm:p-10 lg:p-12">
-        {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-8 sm:mb-10">
           <div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#1E1E1E] tracking-tight leading-tight max-w-lg">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-text-dark tracking-tight leading-tight max-w-lg">
               Get Hired and Hire <br className="hidden sm:inline" />
               Professionals Through <br className="hidden sm:inline" />
               Our Job Portal.
@@ -34,10 +32,8 @@ export function JobPortalSection() {
           </div>
         </div>
 
-        {/* Content Grid: Photo Left + Stats Card Right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-          {/* Workshop photo */}
-          <div className="lg:col-span-8 relative h-72 sm:h-96 lg:h-[420px] rounded-2xl overflow-hidden shadow-sm">
+          <div className="lg:col-span-8 relative h-72 sm:h-96 lg:h-105 rounded-2xl overflow-hidden shadow-sm">
             <Image
               src="/hero-img-3.jpg"
               alt="Workmasters Tradesmen Collaboration"
@@ -48,9 +44,7 @@ export function JobPortalSection() {
             <div className="absolute inset-0 bg-black/15 pointer-events-none" />
           </div>
 
-          {/* Dark Stats Card */}
-          <div className="lg:col-span-4 rounded-2xl bg-[#20252B] p-6 sm:p-8 text-center text-white flex flex-col justify-around shadow-sm min-h-[300px]">
-            {/* Stat 1 */}
+          <div className="lg:col-span-4 rounded-2xl bg-[#20252B] p-6 sm:p-8 text-center text-white flex flex-col justify-around shadow-sm min-h-75">
             <div className="py-2">
               <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
                 Employers
@@ -62,7 +56,6 @@ export function JobPortalSection() {
 
             <div className="w-full h-px bg-white/10" />
 
-            {/* Stat 2 */}
             <div className="py-2">
               <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
                 Job Openings
@@ -74,7 +67,6 @@ export function JobPortalSection() {
 
             <div className="w-full h-px bg-white/10" />
 
-            {/* Stat 3 */}
             <div className="py-2">
               <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
                 Professionals

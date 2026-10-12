@@ -12,8 +12,7 @@ interface WorkforceCtaBannerProps {
 export function WorkforceCtaBanner({ onOpenAuthModal }: WorkforceCtaBannerProps) {
   return (
     <section className="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pb-14 sm:pb-20">
-      <div className="relative overflow-hidden rounded-[24px] sm:rounded-[36px] bg-[#1E242B] py-14 sm:py-20 px-6 sm:px-12 lg:px-20 text-center shadow-xl">
-        {/* High-res photograph with NO baked text */}
+      <div className="relative overflow-hidden rounded-3xl sm:rounded-[36px] bg-[#1E242B] py-14 sm:py-20 px-6 sm:px-12 lg:px-20 text-center shadow-xl">
         <Image
           src="/landing-img-1.jpg"
           alt="Skilled Workforce"
@@ -22,10 +21,8 @@ export function WorkforceCtaBanner({ onOpenAuthModal }: WorkforceCtaBannerProps)
           sizes="(max-width: 1280px) 100vw, 1200px"
         />
 
-        {/* Dark translucent gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/75 to-black/85 z-0" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/80 via-black/75 to-black/85 z-0" />
 
-        {/* Foreground Content */}
         <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-extrabold text-white tracking-tight leading-tight">
             Build A Stronger, More Skilled Workforce

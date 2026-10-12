@@ -38,7 +38,7 @@ export function WhiteNavbar({ onOpenAuthModal }: WhiteNavbarProps) {
 
   return (
     <header className="sticky top-0 z-50 h-20 bg-white/95 backdrop-blur-md border-b border-gray-100 flex items-center shrink-0 transition-all duration-300">
-      <div className="mx-auto flex w-full items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-16 max-w-7xl">
+      <div className="mx-auto flex w-full items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-15">
         <Link
           href="/"
           className="flex items-center gap-2 rounded-lg outline-none cursor-pointer focus-visible:ring-2 focus-visible:ring-secondary"
@@ -47,8 +47,9 @@ export function WhiteNavbar({ onOpenAuthModal }: WhiteNavbarProps) {
             src="/elimi-logo-dark.svg"
             alt="Elimi Logo"
             width={120}
-            height={60}
-            className="object-contain"
+            height={68}
+            className="h-auto w-auto object-contain"
+            style={{ width: "auto", height: "auto" }}
             priority
             loading="eager"
           />
@@ -82,7 +83,7 @@ export function WhiteNavbar({ onOpenAuthModal }: WhiteNavbarProps) {
                 href={link.href}
                 className={`whitespace-nowrap text-xs lg:text-sm font-semibold transition-colors ${
                   isActive
-                    ? "text-[#F9A825] font-bold"
+                    ? "text-secondary font-bold"
                     : "text-gray-700 hover:text-secondary"
                 }`}
               >
@@ -192,7 +193,7 @@ export function WhiteNavbar({ onOpenAuthModal }: WhiteNavbarProps) {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`py-1 text-base transition-colors ${
                     isActive
-                      ? "text-[#F9A825] font-bold"
+                      ? "text-secondary font-bold"
                       : "text-gray-700 font-medium hover:text-secondary"
                   }`}
                 >

@@ -15,16 +15,15 @@ export function DarkFooter() {
     <footer className="w-full bg-[#202529] text-white/80 pt-16 pb-10 border-t border-white/10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
-          {/* Column 1: Brand & Socials */}
           <div className="md:col-span-5 space-y-5">
             <Logo theme="light" width={115} href="/" />
 
             <p className="max-w-sm text-xs sm:text-sm text-white/70 leading-relaxed font-normal">
               Nigeria&apos;s unified path from skill to certification to career,
-              built on recognised qualifications and verified national standards.
+              built on recognised qualifications and verified national
+              standards.
             </p>
 
-            {/* Social Icons */}
             <div className="flex items-center gap-3.5 pt-2">
               <a
                 href="https://instagram.com"
@@ -65,9 +64,7 @@ export function DarkFooter() {
             </div>
           </div>
 
-          {/* Links Grid: Quick Links, Who it's for, Legal */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 md:col-span-7">
-            {/* Quick Links */}
             <div>
               <h4 className="text-sm font-bold text-white tracking-wide">
                 Quick Links
@@ -111,25 +108,32 @@ export function DarkFooter() {
                 </li>
               </ul>
             </div>
-
-            {/* Who it's for */}
             <div>
               <h4 className="text-sm font-bold text-white tracking-wide">
                 Who it&apos;s for
               </h4>
               <ul className="mt-4 space-y-2.5 text-xs sm:text-sm text-white/70">
                 <li>
-                  <a href="#about" className="hover:text-white transition-colors">
+                  <a
+                    href="#about"
+                    className="hover:text-white transition-colors"
+                  >
                     Institutions
                   </a>
                 </li>
                 <li>
-                  <a href="#about" className="hover:text-white transition-colors">
+                  <a
+                    href="#about"
+                    className="hover:text-white transition-colors"
+                  >
                     Government
                   </a>
                 </li>
                 <li>
-                  <a href="#about" className="hover:text-white transition-colors">
+                  <a
+                    href="#about"
+                    className="hover:text-white transition-colors"
+                  >
                     Programme partners
                   </a>
                 </li>

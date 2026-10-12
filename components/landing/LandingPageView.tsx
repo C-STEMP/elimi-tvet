@@ -24,39 +24,20 @@ export function LandingPageView() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white select-text">
-      {/* 1. Navbar with active Home & Role Modal trigger */}
       <WhiteNavbar onOpenAuthModal={handleOpenAuthModal} />
 
       <main className="flex-1">
-        {/* 2. Hero Section: "Unlock Skills That Will Shape Your Future" */}
         <MainHeroSection onOpenAuthModal={handleOpenAuthModal} />
-
-        {/* 3. Partner Strip */}
         <PartnerStripSection />
-
-        {/* 4. "Our Most Popular Courses" */}
         <PopularCoursesSection />
-
-        {/* 5. "Get Assessed With Our Competency Assessment Platform" (CAP & RPL) */}
         <AssessmentPlatformSection />
-
-        {/* 6. "Get Hired and Hire Professionals Through Our Job Portal" (Workmasters) */}
         <JobPortalSection />
-
-        {/* 7. "Our Positive Social Impact" */}
         <SocialImpactSection />
-
-        {/* 8. "Frequently Asked Questions" */}
         <FaqAccordionSection />
-
-        {/* 9. "Build A Stronger, More Skilled Workforce" CTA Banner */}
         <WorkforceCtaBanner onOpenAuthModal={handleOpenAuthModal} />
       </main>
-
-      {/* 10. Modern Dark Footer */}
       <DarkFooter />
 
-      {/* Platform & Role Selection Modal */}
       <PlatformSelectModal
         isOpen={authModalOpen}
         initialMode={authMode}

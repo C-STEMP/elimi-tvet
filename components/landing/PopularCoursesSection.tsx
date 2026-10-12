@@ -85,15 +85,14 @@ export function PopularCoursesSection() {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const filteredCourses = COURSES.filter((c) =>
-    c.title.toLowerCase().includes(search.toLowerCase())
+    c.title.toLowerCase().includes(search.toLowerCase()),
   );
 
   return (
-    <section className="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-12 lg:py-16">
-      {/* Top Header */}
+    <section className="w-full px-4 sm:px-6 lg:px-8 xl:px-15 mx-auto py-12 lg:py-16">
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
         <div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1E1E1E] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-text-dark tracking-tight">
             Our Most Popular <br className="hidden sm:inline" /> Courses
           </h2>
         </div>
@@ -103,9 +102,7 @@ export function PopularCoursesSection() {
         </p>
       </div>
 
-      {/* Filter and Search Bar */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
-        {/* Search Input */}
         <div className="relative w-full sm:max-w-xs">
           <HiSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
           <input
@@ -117,7 +114,6 @@ export function PopularCoursesSection() {
           />
         </div>
 
-        {/* Dropdown Category */}
         <div className="w-full sm:w-auto flex justify-end">
           <select
             value={selectedCategory}
@@ -133,14 +129,12 @@ export function PopularCoursesSection() {
         </div>
       </div>
 
-      {/* Course Cards Grid: 4 cols on desktop, 2 on tablet, 1 on mobile */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {filteredCourses.map((course) => (
           <div
             key={course.id}
             className="rounded-2xl border border-gray-100 bg-white overflow-hidden shadow-xs hover:shadow-md transition-all flex flex-col justify-between group"
           >
-            {/* Thumbnail with Badge */}
             <div className="relative h-44 w-full bg-gray-100 overflow-hidden">
               <Image
                 src={course.image}
@@ -149,16 +143,14 @@ export function PopularCoursesSection() {
                 className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
               />
-              {/* Badge */}
               <div className="absolute top-2.5 left-2.5 bg-red-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-md shadow-xs select-none">
                 Top Rated
               </div>
             </div>
 
-            {/* Content & Action */}
             <div className="p-4 sm:p-5 flex flex-col flex-1 justify-between">
               <div>
-                <h3 className="text-sm sm:text-base font-bold text-[#1E1E1E] leading-snug">
+                <h3 className="text-sm sm:text-base font-bold text-text-dark leading-snug">
                   {course.title}
                 </h3>
                 <p className="mt-1.5 text-xs text-gray-500 line-clamp-2 leading-relaxed">
@@ -181,7 +173,6 @@ export function PopularCoursesSection() {
         ))}
       </div>
 
-      {/* Bottom Button: See More Courses */}
       <div className="mt-10 sm:mt-12 flex justify-center">
         <a
           href="https://training.elimi.africa/"
