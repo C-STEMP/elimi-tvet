@@ -89,7 +89,10 @@ export function PopularCoursesSection() {
   );
 
   return (
-    <section className="w-full px-4 sm:px-6 lg:px-8 xl:px-15 mx-auto py-12 lg:py-16">
+    <section
+      id="courses"
+      className="w-full px-4 sm:px-6 lg:px-8 xl:px-15 mx-auto py-12 lg:py-16"
+    >
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
         <div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-text-dark tracking-tight">

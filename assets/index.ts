@@ -39,6 +39,10 @@ import heroImg2 from "@/assets/images/hero-img-2.png";
 import heroImg3 from "@/assets/images/hero-img-3.png";
 import heroImg4 from "@/public/hero-img-4.jpg";
 import landingImg1 from "@/public/landing-img-1.jpg";
+import heroAvatar1 from "@/assets/images/hero_avatar_1.jpg";
+import heroAvatar2 from "@/assets/images/hero_avatar_2.jpg";
+import heroAvatar3 from "@/assets/images/hero_avatar_3.jpg";
+import womanOnSystem from "@/assets/images/woman_on_system.png";
 import deactivateStaffImg from "@/assets/icons/deactivate.svg";
 import activateStaffImg from "@/assets/icons/activate.svg";
 import shortlistApplicantImg from "@/assets/icons/shortlist-applicant.png";
@@ -84,6 +88,10 @@ export {
   heroImg3,
   heroImg4,
   landingImg1,
+  heroAvatar1,
+  heroAvatar2,
+  heroAvatar3,
+  womanOnSystem,
   deactivateStaffImg,
   activateStaffImg,
   shortlistApplicantImg,
@@ -130,6 +138,10 @@ export const ASSETS_URL = {
   heroImg3,
   heroImg4,
   landingImg1,
+  heroAvatar1,
+  heroAvatar2,
+  heroAvatar3,
+  womanOnSystem,
   deactivateStaffImg,
   activateStaffImg,
   shortlistApplicantImg,
