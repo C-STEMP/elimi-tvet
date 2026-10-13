@@ -50,6 +50,7 @@ import rejectApplicantImg from "@/assets/icons/reject-applicant.png";
 import warningIcon from "@/assets/icons/warning-icon.svg";
 import warningSignIcon from "@/assets/icons/warning-sign.svg";
 import cstempLogo from "@/assets/icons/cstemp.png";
+import playIcon from "@/assets/icons/play.svg";
 
 export {
   logoIcon,
@@ -99,6 +100,7 @@ export {
   warningIcon,
   warningSignIcon,
   cstempLogo,
+  playIcon,
 };
 
 export const ASSETS_URL = {
@@ -149,4 +151,5 @@ export const ASSETS_URL = {
   warningIcon,
   warningSignIcon,
   cstempLogo,
+  playIcon,
 };

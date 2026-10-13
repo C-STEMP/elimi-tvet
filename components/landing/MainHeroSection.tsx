@@ -10,6 +10,7 @@ import {
   heroAvatar2,
   heroAvatar3,
   womanOnSystem,
+  playIcon,
 } from "@/assets";
 import { AuthMode } from "./PlatformSelectModal";
 
@@ -60,27 +61,24 @@ export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
               </div>
             </div>
 
-            {/* Main Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold text-text-dark tracking-tight leading-[1.12]">
               Unlock Skills That <br className="hidden sm:inline" />
               Will Shape Your <br className="hidden sm:inline" />
               Future
             </h1>
 
-            {/* Description */}
-            <p className="text-xs sm:text-sm md:text-base text-[#333333] leading-relaxed font-normal max-w-lg">
+            <p className="text-xs sm:text-sm md:text-base text-[#333333] leading-relaxed font-medium max-w-lg">
               Build your skills, assess your abilities, earn certificates, and
               explore job opportunities, all on one platform designed to help
               you take the next step in your career
             </p>
 
-            {/* Action Button */}
             <div className="pt-2">
               {onOpenAuthModal ? (
                 <button
                   type="button"
                   onClick={() => onOpenAuthModal("register")}
-                  className="inline-block rounded-xl bg-secondary px-8 sm:px-10 py-3.5 sm:py-4 text-xs sm:text-sm font-bold text-white shadow-md hover:bg-secondary-hover transition-all cursor-pointer active:scale-95"
+                  className="inline-block rounded-xl bg-secondary px-8 sm:px-10 py-3.5 sm:py-4 text-xs md:text-sm lg:text-base font-bold text-white shadow-md hover:bg-secondary-hover transition-all cursor-pointer active:scale-95"
                 >
                   Get Started
                 </button>
@@ -95,12 +93,9 @@ export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
             </div>
           </div>
 
-          {/* Right Column: 3-Image Collage matching Figma */}
           <div className="w-full xl:w-auto flex items-center justify-center xl:justify-end overflow-visible pt-4 xl:pt-0">
             <div className="relative flex items-center gap-4 sm:gap-6 shrink-0 scale-[0.62] xs:scale-[0.72] sm:scale-[0.85] md:scale-95 lg:scale-90 xl:scale-100 origin-center xl:origin-right -my-15 xs:my-[-40px] sm:-my-5 md:my-0">
-              {/* Left Sub-Column (Technician card on top, Trainee & 2k+ Courses card below) */}
               <div className="flex flex-col gap-4 sm:gap-6 items-end">
-                {/* 1. Yellow Technician Card */}
                 <div className="relative w-69 h-69 shrink-0">
                   <Image
                     src={heroImg1}
@@ -110,19 +105,24 @@ export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
                     priority
                     className="object-contain"
                   />
-                  {/* Play Icon Badge overlapping corner */}
-                  <div className="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-[#85152F] flex items-center justify-center shadow-xs select-none z-20">
-                    <svg
-                      className="w-2.5 h-2.5 text-white translate-x-[0.5px]"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
+                  <div className="absolute -top-5 -right-4.75 w-14 h-14 bg-[#FEEED3] rounded-full flex items-center justify-center z-20 select-none">
+                    <button
+                      type="button"
+                      aria-label="Play video"
+                      className="w-6.5 h-6.5 flex items-center justify-center rounded-full hover:scale-110 active:scale-95 transition-transform cursor-pointer"
                     >
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
+                      <Image
+                        src={playIcon}
+                        alt="Play icon"
+                        width={26}
+                        height={26}
+                        priority
+                        className="w-6.5 h-6.5 object-contain drop-shadow-xs"
+                      />
+                    </button>
                   </div>
                 </div>
 
-                {/* 2. Burgundy Trainee Card with standalone 2k+ Courses Button */}
                 <div className="relative w-95.25 h-52.5 shrink-0">
                   <Image
                     src={womanOnSystem}
@@ -132,7 +132,6 @@ export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
                     priority
                     className="object-contain"
                   />
-                  {/* Standalone 2k+ Courses Button */}
                   <a
                     href="#courses"
                     onClick={(e) => {
@@ -141,7 +140,7 @@ export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
                         .getElementById("courses")
                         ?.scrollIntoView({ behavior: "smooth" });
                     }}
-                    className="absolute top-0 right-0 w-[200px] h-[67px] bg-[#FAB951] hover:bg-[#F9AE3B] text-[#222222] font-bold text-[18px] tracking-tight rounded-[18px] flex items-center justify-center gap-3 shadow-xs hover:shadow-md transition-all hover:scale-[1.02] active:scale-95 cursor-pointer z-10 select-none"
+                    className="absolute top-0 right-0 w-50 h-16.75 bg-[#FAB951] hover:bg-[#F9AE3B] text-[#222222] font-bold text-[18px] tracking-tight rounded-[18px] flex items-center justify-center gap-3 shadow-xs hover:shadow-md transition-all hover:scale-[1.02] active:scale-95 cursor-pointer z-10 select-none"
                     aria-label="Explore 2k+ Courses"
                   >
                     <svg
@@ -173,7 +172,6 @@ export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
                 </div>
               </div>
 
-              {/* Right Sub-Column: Construction Workers Card */}
               <div className="relative w-69 h-86.75 rounded-2xl overflow-hidden shrink-0 self-center shadow-xs">
                 <Image
                   src={heroImg2}

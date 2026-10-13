@@ -19,21 +19,45 @@ const PARTNERS = [
 
 export function PartnerStripSection() {
   return (
-    <section className="w-full py-6 sm:py-8 border-y border-gray-100 bg-white overflow-hidden">
+    <section className="w-full py-6 sm:py-8 bg-white overflow-hidden">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 xl:px-15">
-        <div className="flex items-center justify-between gap-6 sm:gap-10 overflow-x-auto no-scrollbar py-2 opacity-65 hover:opacity-100 transition-opacity">
-          {PARTNERS.map((partner, index) => {
-            const Icon = partner.icon;
-            return (
-              <div
-                key={index}
-                className="flex items-center gap-2.5 text-gray-700 whitespace-nowrap select-none font-bold text-sm sm:text-base tracking-tight shrink-0"
-              >
-                <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
-                <span>{partner.name}</span>
-              </div>
-            );
-          })}
+        <div className="relative pb-10 border-b border-[#33333333] pt-2 overflow-hidden marquee-mask">
+          <div className="flex w-max items-center animate-marquee hover:[animation-play-state:paused] opacity-70 hover:opacity-100 transition-opacity">
+            {/* First sequence of partners */}
+            <div className="flex items-center gap-8 sm:gap-14 pr-8 sm:pr-14 shrink-0">
+              {PARTNERS.concat(PARTNERS).map((partner, index) => {
+                const Icon = partner.icon;
+                return (
+                  <div
+                    key={`p1-${index}`}
+                    className="flex items-center gap-2.5 text-black whitespace-nowrap select-none font-bold text-sm sm:text-base tracking-tight shrink-0"
+                  >
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700" />
+                    <span>{partner.name}</span>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Seamless duplicate sequence for continuous infinite loop */}
+            <div
+              className="flex items-center gap-8 sm:gap-14 pr-8 sm:pr-14 shrink-0"
+              aria-hidden="true"
+            >
+              {PARTNERS.concat(PARTNERS).map((partner, index) => {
+                const Icon = partner.icon;
+                return (
+                  <div
+                    key={`p2-${index}`}
+                    className="flex items-center gap-2.5 text-black whitespace-nowrap select-none font-bold text-sm sm:text-base tracking-tight shrink-0"
+                  >
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700" />
+                    <span>{partner.name}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>

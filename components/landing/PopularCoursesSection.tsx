@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { HiSearch } from "react-icons/hi";
+import { HiSearch, HiChevronDown } from "react-icons/hi";
 
 interface Course {
   id: number;
@@ -95,11 +95,11 @@ export function PopularCoursesSection() {
     >
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
         <div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-text-dark tracking-tight">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-[#333333] tracking-tight">
             Our Most Popular <br className="hidden sm:inline" /> Courses
           </h2>
         </div>
-        <p className="text-xs sm:text-sm text-gray-500 max-w-sm sm:text-right leading-relaxed font-normal">
+        <p className="text-xs md:text-sm lg:text-base text-[#333333] max-w-lg place-self-end sm:text-right leading-relaxed font-normal">
           Lorem ipsum dolor sit amet consectetur. Pellentesque vel quam in nisl
           pretium non dui scelerisque varius tristique mollis vitae.
         </p>
@@ -107,28 +107,29 @@ export function PopularCoursesSection() {
 
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
         <div className="relative w-full sm:max-w-xs">
-          <HiSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+          <HiSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-black" />
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search courses..."
-            className="w-full rounded-xl border border-gray-200 bg-white pl-10 pr-4 py-2.5 text-xs sm:text-sm text-gray-800 placeholder:text-gray-400 focus:border-secondary focus:outline-none transition-colors"
+            className="w-full rounded-xl border border-[#12312B33] bg-white pl-10 pr-4 py-2.5 text-xs sm:text-sm text-[#12312B80] placeholder:text-gray-400 focus:border-secondary focus:outline-none transition-colors"
           />
         </div>
 
-        <div className="w-full sm:w-auto flex justify-end">
+        <div className="relative w-full sm:w-44 flex justify-end">
           <select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
-            className="rounded-xl border border-gray-200 bg-white px-4 py-2.5 text-xs sm:text-sm font-semibold text-gray-700 focus:border-secondary focus:outline-none cursor-pointer"
+            className="w-full appearance-none rounded-xl border border-[#12312B33] bg-white pl-4 pr-10 py-2.5 text-xs sm:text-sm font-semibold text-black focus:border-secondary focus:outline-none cursor-pointer transition-colors"
           >
-            <option value="All">All Categories</option>
+            <option value="All">All</option>
             <option value="Construction">Construction</option>
             <option value="Electrical">Electrical</option>
             <option value="Plumbing">Plumbing</option>
             <option value="Finishing">Finishing &amp; Painting</option>
           </select>
+          <HiChevronDown className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
         </div>
       </div>
 
