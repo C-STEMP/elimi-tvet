@@ -7,7 +7,7 @@ import { contactBg } from "@/assets";
 export function ContactHeroBanner() {
   return (
     <section className="w-full px-4 sm:px-6 lg:px-8 xl:px-15 mx-auto pt-6 sm:pt-8">
-      <div className="relative w-full">
+      <div data-aos="fade-down" className="relative w-full">
         {/* Curved Hero Image with right tab extension */}
         <Image
           src={contactBg}

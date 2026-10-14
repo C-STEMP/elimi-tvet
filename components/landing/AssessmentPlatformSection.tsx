@@ -6,7 +6,7 @@ import { accessImg, redBg, yellowBg } from "@/assets";
 export function AssessmentPlatformSection() {
   return (
     <section className="w-full bg-primary/10 p-4 sm:px-6 lg:p-8 xl:p-15">
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10">
+      <div data-aos="fade-up" className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10">
         <div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#333333] tracking-tight leading-tight max-w-xl">
             Get Assessed With Our <br className="hidden sm:inline" />
@@ -14,13 +14,17 @@ export function AssessmentPlatformSection() {
           </h2>
         </div>
         <p className="text-xs md:text-sm lg:text-base text-[#333333] max-w-lg sm:text-right leading-relaxed font-normal">
-          Lorem ipsum dolor sit amet consectetur. Pellentesque vel quam in nisl
-          pretium non dui scelerisque varius tristique mollis vitae.
+          Validate your skills through standardized assessments, earn accredited
+          certifications, and unlock new career opportunities.
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <div className="rounded-2xl bg-primary p-6 sm:p-8 text-white flex flex-col justify-between shadow-md relative overflow-hidden">
+        <div
+          data-aos="fade-right"
+          data-aos-delay="100"
+          className="rounded-2xl bg-primary p-6 sm:p-8 text-white flex flex-col justify-between shadow-md relative overflow-hidden"
+        >
           <Image
             src={redBg}
             alt="Standard Assessment Background"
@@ -33,8 +37,8 @@ export function AssessmentPlatformSection() {
               Standard Assessment
             </h3>
             <p className="mt-2 text-xs sm:text-sm text-white/85 leading-relaxed font-normal">
-              Lorem ipsum dolor sit amet consectetur. Pellentesque vel quam in
-              nisl pretium non dui scelerisque varius tristique mollis vitae.
+              Demonstrate your technical expertise through standardized theory and
+              practical evaluations tailored to national standards.
             </p>
 
             <div className="mt-5">
@@ -44,19 +48,19 @@ export function AssessmentPlatformSection() {
               <ul className="space-y-1.5 text-sm text-white/85">
                 <li className="flex items-start gap-2">
                   <span className="font-bold">•</span>
-                  <span>Lorem ipsum dolor sit amet consectetur.</span>
+                  <span>Select your vocational trade and level.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="font-bold">•</span>
-                  <span>Lorem ipsum dolor sit amet consectetur.</span>
+                  <span>Complete knowledge and hands-on tests.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="font-bold">•</span>
-                  <span>Lorem ipsum dolor sit amet consectetur.</span>
+                  <span>Receive verified competency scores.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="font-bold">•</span>
-                  <span>Lorem ipsum dolor sit amet consectetur.</span>
+                  <span>Earn your industry-backed certificate.</span>
                 </li>
               </ul>
             </div>
@@ -75,7 +79,11 @@ export function AssessmentPlatformSection() {
         </div>
 
         {/* Card 2: RPL - Recognition Of Prior Learning */}
-        <div className="rounded-2xl bg-secondary p-6 sm:p-8 text-white flex flex-col justify-between shadow-md relative overflow-hidden">
+        <div
+          data-aos="fade-left"
+          data-aos-delay="200"
+          className="rounded-2xl bg-secondary p-6 sm:p-8 text-white flex flex-col justify-between shadow-md relative overflow-hidden"
+        >
           <Image
             src={yellowBg}
             alt="RPL Background"
@@ -88,8 +96,8 @@ export function AssessmentPlatformSection() {
               RPL - Recognition Of Prior Learning
             </h3>
             <p className="mt-2 text-xs sm:text-sm text-white leading-relaxed font-normal">
-              Lorem ipsum dolor sit amet consectetur. Pellentesque vel quam in
-              nisl pretium non dui scelerisque varius tristique mollis vitae.
+              Formalize your practical skills, informal apprenticeship, and
+              on-the-job experience into a nationally recognized credential.
             </p>
 
             <div className="mt-5">
@@ -99,19 +107,19 @@ export function AssessmentPlatformSection() {
               <ul className="space-y-1.5 text-sm text-white">
                 <li className="flex items-start gap-2">
                   <span className="text-white font-bold">•</span>
-                  <span>Lorem ipsum dolor sit amet consectetur.</span>
+                  <span>Submit portfolio of past work & experience.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-white font-bold">•</span>
-                  <span>Lorem ipsum dolor sit amet consectetur.</span>
+                  <span>Undergo expert workplace skills review.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-white font-bold">•</span>
-                  <span>Lorem ipsum dolor sit amet consectetur.</span>
+                  <span>Demonstrate real-world trade mastery.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-white font-bold">•</span>
-                  <span>Lorem ipsum dolor sit amet consectetur.</span>
+                  <span>Attain accredited RPL qualification.</span>
                 </li>
               </ul>
             </div>
@@ -130,7 +138,11 @@ export function AssessmentPlatformSection() {
         </div>
       </div>
 
-      <div className="relative w-full h-56 sm:h-72 md:h-84 rounded-2xl overflow-hidden shadow-sm">
+      <div
+        data-aos="zoom-in"
+        data-aos-delay="150"
+        className="relative w-full h-56 sm:h-72 md:h-84 rounded-2xl overflow-hidden shadow-sm"
+      >
         <Image
           src={accessImg}
           alt="Artisans pottery & craft workshop"

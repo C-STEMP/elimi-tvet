@@ -8,6 +8,7 @@ import { HiSearch, HiChevronDown } from "react-icons/hi";
 interface Course {
   id: number;
   title: string;
+  category: string;
   badge: string;
   description: string;
   image: string;
@@ -16,66 +17,74 @@ interface Course {
 const COURSES: Course[] = [
   {
     id: 1,
-    title: "Painting & Decoration",
-    badge: "Top Rated",
+    title: "Solar PV Installation & Repair",
+    category: "Electrical",
+    badge: "Trending",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Varius sollicitudin risus sapien...",
+      "Master clean energy design, solar PV arrays, inverters, and battery storage systems.",
     image: "/hero-img-4.jpg",
   },
   {
     id: 2,
-    title: "Painting & Decoration",
+    title: "Electrical Wiring & Systems",
+    category: "Electrical",
     badge: "Top Rated",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Varius sollicitudin risus sapien...",
+      "Learn domestic and industrial circuit wiring, panel installation, and fault diagnostics.",
     image: "/hero-img-4.jpg",
   },
   {
     id: 3,
-    title: "Painting & Decoration",
-    badge: "Top Rated",
+    title: "Plumbing & Modern Pipefitting",
+    category: "Plumbing",
+    badge: "Popular",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Varius sollicitudin risus sapien...",
+      "Gain hands-on expertise in water distribution, drainage networks, and sanitary fixtures.",
     image: "/hero-img-4.jpg",
   },
   {
     id: 4,
-    title: "Painting & Decoration",
+    title: "Welding & Metal Fabrication",
+    category: "Construction",
     badge: "Top Rated",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Varius sollicitudin risus sapien...",
+      "Develop precision arc, MIG and TIG welding techniques, blueprint reading, and safety.",
     image: "/hero-img-4.jpg",
   },
   {
     id: 5,
-    title: "Painting & Decoration",
-    badge: "Top Rated",
+    title: "Automotive Diagnostics & Care",
+    category: "Construction",
+    badge: "In Demand",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Varius sollicitudin risus sapien...",
+      "Understand modern vehicle diagnostics, engine maintenance, and mechanical troubleshooting.",
     image: "/hero-img-4.jpg",
   },
   {
     id: 6,
-    title: "Painting & Decoration",
-    badge: "/Top Rated",
+    title: "Carpentry & Furniture Joinery",
+    category: "Construction",
+    badge: "Top Rated",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Varius sollicitudin risus sapien...",
+      "Build precision architectural woodwork, modern cabinetry, and structural timber frames.",
     image: "/hero-img-4.jpg",
   },
   {
     id: 7,
-    title: "Painting & Decoration",
+    title: "Painting & Interior Finishing",
+    category: "Finishing",
     badge: "Top Rated",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Varius sollicitudin risus sapien...",
+      "Learn surface prep, spray application, decorative coatings, and professional aesthetics.",
     image: "/hero-img-4.jpg",
   },
   {
     id: 8,
-    title: "Painting & Decoration",
-    badge: "Top Rated",
+    title: "HVAC & Commercial Cooling",
+    category: "Electrical",
+    badge: "Certified",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Varius sollicitudin risus sapien...",
+      "Install, service, and maintain residential and commercial air conditioning equipment.",
     image: "/hero-img-4.jpg",
   },
 ];
@@ -84,28 +93,38 @@ export function PopularCoursesSection() {
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const filteredCourses = COURSES.filter((c) =>
-    c.title.toLowerCase().includes(search.toLowerCase()),
-  );
+  const filteredCourses = COURSES.filter((c) => {
+    const matchesSearch = c.title.toLowerCase().includes(search.toLowerCase());
+    const matchesCategory =
+      selectedCategory === "All" || c.category === selectedCategory;
+    return matchesSearch && matchesCategory;
+  });
 
   return (
     <section
       id="courses"
       className="w-full px-4 sm:px-6 lg:px-8 xl:px-15 mx-auto py-12 lg:py-16"
     >
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+      <div
+        data-aos="fade-up"
+        className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8"
+      >
         <div>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-[#333333] tracking-tight">
             Our Most Popular <br className="hidden sm:inline" /> Courses
           </h2>
         </div>
         <p className="text-xs md:text-sm lg:text-base text-[#333333] max-w-lg place-self-end sm:text-right leading-relaxed font-normal">
-          Lorem ipsum dolor sit amet consectetur. Pellentesque vel quam in nisl
-          pretium non dui scelerisque varius tristique mollis vitae.
+          Explore practical, industry-accredited vocational courses designed by
+          master craftspeople to equip you with job-ready trade skills.
         </p>
       </div>
 
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
+      <div
+        data-aos="fade-up"
+        data-aos-delay="100"
+        className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8"
+      >
         <div className="relative w-full sm:max-w-xs">
           <HiSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-black" />
           <input
@@ -134,9 +153,11 @@ export function PopularCoursesSection() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        {filteredCourses.map((course) => (
+        {filteredCourses.map((course, idx) => (
           <div
             key={course.id}
+            data-aos="fade-up"
+            data-aos-delay={(idx % 4) * 100 + 100}
             className="rounded-2xl border border-gray-100 bg-white overflow-hidden shadow-xs hover:shadow-md transition-all flex flex-col justify-between group"
           >
             <div className="relative h-44 w-full bg-gray-100 overflow-hidden">
@@ -148,11 +169,11 @@ export function PopularCoursesSection() {
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
               />
               <div className="absolute top-2.5 left-2.5 bg-red-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-md shadow-xs select-none">
-                Top Rated
+                {course.badge}
               </div>
             </div>
 
-            <div className="p-4 sm:p-5 flex flex-col flex-1 justify-between">
+            <div className="p-4 sm:p-5 flex flex-col flex-1 justify-between bg-input-bg">
               <div>
                 <h3 className="text-sm sm:text-base font-bold text-text-dark leading-snug">
                   {course.title}
@@ -177,7 +198,7 @@ export function PopularCoursesSection() {
         ))}
       </div>
 
-      <div className="mt-10 sm:mt-12 flex justify-center">
+      <div data-aos="fade-up" className="mt-10 sm:mt-12 flex justify-center">
         <a
           href="https://training.elimi.africa/"
           target="_blank"

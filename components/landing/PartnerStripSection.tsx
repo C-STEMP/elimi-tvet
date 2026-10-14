@@ -19,7 +19,7 @@ const PARTNERS = [
 
 export function PartnerStripSection() {
   return (
-    <section className="w-full py-6 sm:py-8 bg-white overflow-hidden">
+    <section data-aos="fade-up" className="w-full py-6 sm:py-8 bg-white overflow-hidden">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 xl:px-15">
         <div className="relative pb-10 border-b border-[#33333333] pt-2 overflow-hidden marquee-mask">
           <div className="flex w-max items-center animate-marquee hover:[animation-play-state:paused] opacity-70 hover:opacity-100 transition-opacity">

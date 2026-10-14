@@ -7,45 +7,45 @@ import { HiChevronDown, HiMinus } from "react-icons/hi";
 const FAQS = [
   {
     id: 1,
-    question: "Lorem Ipsum Dolor  Lorem Ipsum Dolor",
+    question: "What is Elimi and how does the ecosystem work?",
     answer:
-      "Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor.",
+      "Elimi is an integrated TVET platform that connects practical vocational training (Elimi LMS), competency assessments (Elimi CAP), and vetted job placement (Workmasters) into a single unified journey.",
   },
   {
     id: 2,
-    question: "Lorem Ipsum Dolor  Lorem Ipsum Dolor",
+    question: "What is the Competency Assessment Platform (CAP)?",
     answer:
-      "Lorem ipsum dolor sit amet consectetur. Varius sollicitudin risus sapien eget. Gravida egestas diam suspendisse feugiat vulputate.",
+      "CAP provides standardized theoretical and hands-on practical assessments that evaluate technical abilities and award nationally accredited certifications.",
   },
   {
     id: 3,
-    question: "Lorem Ipsum Dolor  Lorem Ipsum Dolor",
+    question: "What is Recognition of Prior Learning (RPL)?",
     answer:
-      "Pellentesque vel quam in nisl pretium non dui scelerisque varius tristique mollis vitae. Phasellus interdum euismod odio.",
+      "RPL allows artisans with years of informal apprenticeship or on-the-job experience to formalize their craft and earn recognized vocational qualifications without starting from scratch.",
   },
   {
     id: 4,
-    question: "Lorem Ipsum Dolor  Lorem Ipsum Dolor",
+    question: "How does Workmasters connect artisans with jobs?",
     answer:
-      "Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam.",
+      "Workmasters is our dedicated marketplace where certified artisans and technicians create verified profiles and connect directly with hiring employers, contractors, and clients.",
   },
   {
     id: 5,
-    question: "Lorem Ipsum Dolor  Lorem Ipsum Dolor",
+    question: "Are Elimi certifications recognized by employers?",
     answer:
-      "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nullam at sapien quis tellus.",
+      "Yes, our assessments and curriculum are developed in partnership with industry leaders, regulatory bodies, and TVET authorities to ensure national market validity.",
   },
   {
     id: 6,
-    question: "Lorem Ipsum Dolor  Lorem Ipsum Dolor",
+    question: "Can I learn online as well as gain practical workshop experience?",
     answer:
-      "Integer facilisis, elit eu dictum convallis, neque sem facilisis nunc, nec molestie dolor justo eget est.",
+      "Yes, Elimi offers a hybrid learning model with flexible online theory modules complemented by physical hands-on training at accredited technical workshops.",
   },
   {
     id: 7,
-    question: "Lorem Ipsum Dolor  Lorem Ipsum Dolor",
+    question: "How do I get started as a learner, artisan, or employer?",
     answer:
-      "Aliquam erat volutpat. Etiam sit amet orci quis dolor commodo hendrerit. Nulla facilisi.",
+      "Click 'Get Started' to choose your path: enroll in technical courses, register for a competency assessment, or hire certified professionals for your projects.",
   },
 ];
 
@@ -58,24 +58,26 @@ export function FaqAccordionSection() {
 
   return (
     <section className="w-full px-4 sm:px-6 lg:px-8 xl:px-15 mx-auto py-12 lg:py-16">
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+      <div data-aos="fade-up" className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
         <div>
           <h2 className="text-2xl lg:text-3xl xl:text-4xl font-semibold text-[#333333] tracking-tight">
             Frequently Asked Questions
           </h2>
         </div>
         <p className="text-xs md:text-sm lg:text-base text-[#333333] max-w-lg sm:text-right leading-relaxed font-normal">
-          Lorem ipsum dolor sit amet consectetur. Pellentesque vel quam in nisl
-          pretium non dui scelerisque varius tristique mollis vitae.
+          Find clear answers to common questions about our vocational courses,
+          competency assessments, and career placement services.
         </p>
       </div>
 
-      <div className="space-y-3.5 max-w-5xl mx-auto">
-        {FAQS.map((faq) => {
+      <div className="space-y-3.5 mx-auto">
+        {FAQS.map((faq, idx) => {
           const isOpen = openId === faq.id;
           return (
             <div
               key={faq.id}
+              data-aos="fade-up"
+              data-aos-delay={(idx % 5) * 80 + 50}
               className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
                 isOpen
                   ? "border-gray-200 bg-input-bg shadow-xs"

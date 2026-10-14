@@ -37,22 +37,24 @@ const TESTIMONIALS: Testimonial[] = [
 export function SocialImpactSection() {
   return (
     <section className="w-full px-4 sm:px-6 lg:px-8 xl:px-15 mx-auto py-12 lg:py-16">
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+      <div data-aos="fade-up" className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
         <div>
           <h2 className="text-2xl lg:text-3xl xl:text-4xl font-semibold text-[#333333] tracking-tight">
             Our Positive Social Impact
           </h2>
         </div>
         <p className="text-xs md:text-sm lg:text-base text-[#333333] max-w-lg sm:text-right leading-relaxed font-normal">
-          Lorem ipsum dolor sit amet consectetur. Pellentesque vel quam in nisl
-          pretium non dui scelerisque varius tristique mollis vitae.
+          Empowering youth, closing technical skills gaps, and fostering
+          sustainable community growth through accredited vocational pathways.
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {TESTIMONIALS.map((t) => (
+        {TESTIMONIALS.map((t, idx) => (
           <div
             key={t.id}
+            data-aos="fade-up"
+            data-aos-delay={(idx + 1) * 150}
             className="rounded-2xl border border-rose-100 bg-primary/10 p-6 sm:p-7 flex flex-col justify-between shadow-xs hover:shadow-md transition-all"
           >
             <div>

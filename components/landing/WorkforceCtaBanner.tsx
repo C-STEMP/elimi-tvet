@@ -19,7 +19,11 @@ export function WorkforceCtaBanner({
       <div className="absolute bottom-0 inset-x-0 h-1/2 bg-[#333333] pointer-events-none" />
 
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 xl:px-15 mx-auto">
-        <div className="relative overflow-hidden rounded-3xl sm:rounded-[36px] bg-[#1E242B] py-14 sm:py-20 px-6 sm:px-12 lg:px-20 text-center shadow-2xl">
+        <div
+          data-aos="zoom-in"
+          data-aos-duration="900"
+          className="relative overflow-hidden rounded-3xl sm:rounded-[36px] bg-[#1E242B] py-14 sm:py-20 px-6 sm:px-12 lg:px-20 text-center shadow-2xl"
+        >
           <Image
             src={archiImg}
             alt="Skilled Workforce"
