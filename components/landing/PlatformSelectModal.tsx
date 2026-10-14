@@ -1,9 +1,18 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import {
+  HiOutlineAcademicCap,
+  HiOutlineBadgeCheck,
+  HiOutlineBriefcase,
+  HiOutlineOfficeBuilding,
+  HiOutlineArrowNarrowRight,
+  HiX,
+} from "react-icons/hi";
 
 export type AuthMode = "login" | "register";
-type Platform = "cap" | "lms";
+type Platform = "organization" | "cap" | "lms" | "workmasters";
 
 interface PlatformSelectModalProps {
   isOpen: boolean;
@@ -11,17 +20,59 @@ interface PlatformSelectModalProps {
   initialMode?: AuthMode;
 }
 
+interface PlatformOption {
+  id: Platform;
+  title: string;
+  badge: string;
+  description: string;
+  icon: React.ComponentType<{ className?: string }>;
+}
+
+const PLATFORMS: PlatformOption[] = [
+  {
+    id: "lms",
+    title: "Skills Training",
+    badge: "LMS",
+    description: "Vocational trade courses & self-paced learning",
+    icon: HiOutlineAcademicCap,
+  },
+  {
+    id: "cap",
+    title: "Assessment",
+    badge: "CAP",
+    description: "Trade skills assessment, testing & RPL certification",
+    icon: HiOutlineBadgeCheck,
+  },
+  {
+    id: "workmasters",
+    title: "Workmasters",
+    badge: "Jobs",
+    description: "Verified trade professional marketplace & hiring",
+    icon: HiOutlineBriefcase,
+  },
+  {
+    id: "organization",
+    title: "Organization",
+    badge: "TVET",
+    description: "Institutional portal, cohorts & enterprise management",
+    icon: HiOutlineOfficeBuilding,
+  },
+];
+
 export function PlatformSelectModal({
   isOpen,
   onClose,
   initialMode = "login",
 }: PlatformSelectModalProps) {
-  const [selectedPlatform, setSelectedPlatform] = useState<Platform>("cap");
+  const router = useRouter();
+  const [authMode, setAuthMode] = useState<AuthMode>(initialMode);
+  const [selectedPlatform, setSelectedPlatform] = useState<Platform>("organization");
 
   useEffect(() => {
-    // Reset selection to cap when opened
-    if (isOpen) setSelectedPlatform("cap");
-  }, [isOpen]);
+    if (isOpen) {
+      setAuthMode(initialMode);
+    }
+  }, [isOpen, initialMode]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -39,151 +90,177 @@ export function PlatformSelectModal({
 
   if (!isOpen) return null;
 
-  const isLogin = initialMode === "login";
+  const isLogin = authMode === "login";
 
-  const getDestinationUrl = (platform: Platform) => {
+  const handleProceed = (platform: Platform = selectedPlatform) => {
+    onClose();
+    if (platform === "organization") {
+      router.push(isLogin ? "/login" : "/register");
+      return;
+    }
+
     if (platform === "cap") {
-      return isLogin
+      window.location.href = isLogin
         ? "https://cap.e-limi.africa/login"
         : "https://cap.e-limi.africa/register";
+      return;
     }
-    return isLogin
-      ? "https://training.elimi.africa/login"
-      : "https://training.elimi.africa/register";
-  };
 
-  const handleContinue = () => {
-    window.location.href = getDestinationUrl(selectedPlatform);
+    if (platform === "lms") {
+      window.location.href = isLogin
+        ? "https://training.elimi.africa/login"
+        : "https://training.elimi.africa/register";
+      return;
+    }
+
+    if (platform === "workmasters") {
+      window.location.href = isLogin
+        ? "https://workmasters.elimi.africa/login"
+        : "https://workmasters.elimi.africa/register";
+      return;
+    }
   };
 
   return (
-    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6">
+    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity"
+        className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
         onClick={onClose}
       />
 
-      {/* Clean White Modal */}
-      <div className="relative w-full max-w-lg transform overflow-hidden rounded-3xl bg-white p-8 sm:p-12 shadow-2xl transition-all">
+      {/* Modal Dialog */}
+      <div className="relative w-full max-w-2xl transform overflow-hidden rounded-3xl bg-white p-6 sm:p-9 shadow-2xl transition-all border border-gray-100 my-auto">
         {/* Close Button */}
         <button
+          type="button"
           onClick={onClose}
-          className="absolute top-5 right-5 flex h-8 w-8 items-center justify-center rounded-full text-gray-400 hover:bg-gray-100 hover:text-gray-700 transition-colors cursor-pointer"
+          className="absolute top-5 right-5 flex h-9 w-9 items-center justify-center rounded-full text-gray-400 hover:bg-gray-100 hover:text-gray-700 transition-colors cursor-pointer"
           aria-label="Close modal"
         >
-          <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
+          <HiX className="h-5 w-5" />
         </button>
 
-        {/* Title */}
-        <div className="text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#1E293B]">
-            Select Your Platform
+        {/* Modal Header */}
+        <div className="text-center pt-2">
+          {/* Auth Mode Toggle Pill */}
+          <div className="inline-flex items-center rounded-full bg-gray-100 p-1 mb-3">
+            <button
+              type="button"
+              onClick={() => setAuthMode("login")}
+              className={`rounded-full px-4 py-1.5 text-xs font-bold transition-all cursor-pointer ${
+                isLogin
+                  ? "bg-white text-gray-900 shadow-sm"
+                  : "text-gray-500 hover:text-gray-900"
+              }`}
+            >
+              Sign In
+            </button>
+            <button
+              type="button"
+              onClick={() => setAuthMode("register")}
+              className={`rounded-full px-4 py-1.5 text-xs font-bold transition-all cursor-pointer ${
+                !isLogin
+                  ? "bg-white text-gray-900 shadow-sm"
+                  : "text-gray-500 hover:text-gray-900"
+              }`}
+            >
+              Register
+            </button>
+          </div>
+
+          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#1E1E1E]">
+            {isLogin ? "Sign in to ELIMI" : "Join the ELIMI Ecosystem"}
           </h2>
-          <p className="mt-2 text-xs sm:text-sm text-gray-400">
-            {isLogin ? "Choose which portal to sign in to" : "Choose which portal to register with"}
+          <p className="mt-1.5 text-xs sm:text-sm text-gray-500 max-w-md mx-auto">
+            {isLogin
+              ? "Select the platform you want to sign in to:"
+              : "Select the platform you want to register with:"}
           </p>
         </div>
 
-        {/* Simple Platform Selection Cards */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8">
-          {/* Option 1: ELIMI CAP */}
-          <div
-            onClick={() => setSelectedPlatform("cap")}
-            className="flex w-52 flex-col items-center text-center cursor-pointer group"
-          >
-            <div
-              className={`flex h-32 w-32 sm:h-36 sm:w-36 flex-col items-center justify-center rounded-2xl transition-all duration-200 ${
-                selectedPlatform === "cap"
-                  ? "bg-white border-2 border-[#661126] shadow-xl shadow-[#661126]/10 scale-105"
-                  : "bg-white border border-gray-200 hover:border-gray-300 hover:shadow-md"
-              }`}
-            >
-              <div
-                className={`flex h-14 w-14 items-center justify-center rounded-xl transition-colors ${
-                  selectedPlatform === "cap"
-                    ? "text-[#661126]"
-                    : "text-gray-400 group-hover:text-gray-600"
-                }`}
-              >
-                <svg className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.75}
-                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                  />
-                </svg>
-              </div>
-            </div>
-            <span
-              className={`mt-3 text-sm sm:text-base transition-colors ${
-                selectedPlatform === "cap"
-                  ? "font-bold text-gray-900"
-                  : "font-semibold text-gray-500 group-hover:text-gray-700"
-              }`}
-            >
-              CAP (Assessment)
-            </span>
-            <p className="mt-1 text-xs text-gray-400 leading-snug">
-              Trade skills assessment &amp; RPL certification
-            </p>
-          </div>
+        {/* 4 Platform Selection Cards (2x2 Grid) */}
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          {PLATFORMS.map((platform) => {
+            const Icon = platform.icon;
+            const isSelected = selectedPlatform === platform.id;
 
-          {/* Option 2: ELIMI LMS / Learn */}
-          <div
-            onClick={() => setSelectedPlatform("lms")}
-            className="flex w-52 flex-col items-center text-center cursor-pointer group"
-          >
-            <div
-              className={`flex h-32 w-32 sm:h-36 sm:w-36 flex-col items-center justify-center rounded-2xl transition-all duration-200 ${
-                selectedPlatform === "lms"
-                  ? "bg-white border-2 border-[#661126] shadow-xl shadow-[#661126]/10 scale-105"
-                  : "bg-white border border-gray-200 hover:border-gray-300 hover:shadow-md"
-              }`}
-            >
+            return (
               <div
-                className={`flex h-14 w-14 items-center justify-center rounded-xl transition-colors ${
-                  selectedPlatform === "lms"
-                    ? "text-[#661126]"
-                    : "text-gray-400 group-hover:text-gray-600"
+                key={platform.id}
+                onClick={() => {
+                  setSelectedPlatform(platform.id);
+                }}
+                onDoubleClick={() => handleProceed(platform.id)}
+                className={`relative flex flex-col p-4 sm:p-5 rounded-2xl cursor-pointer transition-all duration-200 border text-left ${
+                  isSelected
+                    ? "bg-[#FFF8F0] border-[#F9A825] shadow-md shadow-[#F9A825]/10 scale-[1.01]"
+                    : "bg-white border-gray-200 hover:border-gray-300 hover:bg-gray-50/70"
                 }`}
               >
-                <svg className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.75}
-                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                  />
-                </svg>
+                <div className="flex items-center justify-between mb-2.5">
+                  <div
+                    className={`flex h-11 w-11 items-center justify-center rounded-xl transition-colors ${
+                      isSelected
+                        ? "bg-[#F9A825] text-white"
+                        : "bg-gray-100 text-gray-600"
+                    }`}
+                  >
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <span
+                    className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md ${
+                      isSelected
+                        ? "bg-[#F9A825]/20 text-[#B7791F]"
+                        : "bg-gray-100 text-gray-500"
+                    }`}
+                  >
+                    {platform.badge}
+                  </span>
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <h3
+                    className={`text-base font-bold transition-colors ${
+                      isSelected ? "text-[#1E1E1E]" : "text-gray-800"
+                    }`}
+                  >
+                    {platform.title}
+                  </h3>
+                  <div
+                    className={`h-4 w-4 rounded-full border flex items-center justify-center transition-all ${
+                      isSelected
+                        ? "border-[#F9A825] bg-[#F9A825]"
+                        : "border-gray-300 bg-white"
+                    }`}
+                  >
+                    {isSelected && (
+                      <div className="h-1.5 w-1.5 rounded-full bg-white" />
+                    )}
+                  </div>
+                </div>
+
+                <p className="mt-1 text-xs text-gray-500 leading-snug">
+                  {platform.description}
+                </p>
               </div>
-            </div>
-            <span
-              className={`mt-3 text-sm sm:text-base transition-colors ${
-                selectedPlatform === "lms"
-                  ? "font-bold text-gray-900"
-                  : "font-semibold text-gray-500 group-hover:text-gray-700"
-              }`}
-            >
-              LMS (Learn)
-            </span>
-            <p className="mt-1 text-xs text-gray-400 leading-snug">
-              Vocational trade courses &amp; online learning
-            </p>
-          </div>
+            );
+          })}
         </div>
 
-        {/* Confirm / Continue Button */}
-        <div className="mt-10 flex justify-center">
+        {/* Proceed Action Button */}
+        <div className="mt-7 flex flex-col sm:flex-row items-center justify-between gap-3 pt-2 border-t border-gray-100">
+          <p className="text-xs text-gray-400 text-center sm:text-left">
+            Double-click any card or click proceed below.
+          </p>
+
           <button
             type="button"
-            onClick={handleContinue}
-            className="cursor-pointer rounded-full bg-[#661126] px-10 py-3 text-xs sm:text-sm font-bold tracking-wider text-white uppercase shadow-lg shadow-[#661126]/20 transition-all hover:bg-[#500c1c] hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
+            onClick={() => handleProceed()}
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 cursor-pointer rounded-xl bg-secondary px-8 py-3 text-xs sm:text-sm font-bold text-white shadow-md hover:bg-secondary-hover transition-all active:scale-[0.98]"
           >
-            Confirm &amp; Proceed
+            <span>Proceed to {isLogin ? "Sign In" : "Register"}</span>
+            <HiOutlineArrowNarrowRight className="w-4 h-4" />
           </button>
         </div>
       </div>

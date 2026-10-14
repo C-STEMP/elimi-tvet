@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Work_Sans } from "next/font/google";
-import { ToastProvider } from "@/components/ui/toast";
+import { Providers } from "@/components/providers";
 import "./globals.css";
 
 const inter = Inter({
@@ -18,7 +18,6 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://elimi.africa"),
   title: {
     default: "ELIMI :: Nigeria's Unified TVET Platform",
     template: "%s | ELIMI",
@@ -59,16 +58,34 @@ export const metadata: Metadata = {
       { url: "/favicon.ico" },
       { url: "/icon.ico" },
       { url: "/icon.png", type: "image/png", sizes: "512x512" },
+      { url: "/elimi-favicon.svg", type: "image/svg+xml" },
     ],
     apple: "/apple-icon.png",
+  },
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_APP_URL ||
+      process.env.NEXTAUTH_URL ||
+      "https://cap.e-limi.africa",
+  ),
+  alternates: {
+    canonical: "/",
   },
   openGraph: {
     title: "ELIMI — Nigeria's Unified TVET Platform",
     description:
       "Nigeria's nationwide TVET platform for getting trained, certified, and hired in the skilled trades, all in one place.",
-    url: "https://cap.e-limi.africa",
+    url:
+      process.env.NEXT_PUBLIC_APP_URL ||
+      process.env.NEXTAUTH_URL ||
+      "https://cap.e-limi.africa",
     siteName: "ELIMI :: Nigeria's Unified TVET Platform",
     images: [
+      {
+        url: "/icon.png",
+        width: 512,
+        height: 512,
+        alt: "ELIMI Logo",
+      },
       {
         url: "/landing-img-1.jpg",
         width: 1200,
@@ -84,8 +101,32 @@ export const metadata: Metadata = {
     title: "ELIMI :: Nigeria's Unified TVET Platform",
     description:
       "Nigeria's nationwide TVET platform for getting trained, certified, and hired in the skilled trades, all in one place.",
-    images: ["/landing-img-1.jpg"],
+    images: ["/icon.png", "/landing-img-1.jpg"],
   },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "EducationalOrganization",
+      "@id": "https://cap.e-limi.africa/#organization",
+      name: "ELIMI",
+      url: "https://cap.e-limi.africa",
+      logo: "https://cap.e-limi.africa/icon.png",
+      description:
+        "Nigeria's Unified Technical and Vocational Education and Training (TVET) Platform for training, certification, and employment.",
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://cap.e-limi.africa/#website",
+      url: "https://cap.e-limi.africa",
+      name: "ELIMI TVET Platform",
+      publisher: {
+        "@id": "https://cap.e-limi.africa/#organization",
+      },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -99,8 +140,14 @@ export default function RootLayout({
       className={`${inter.variable} ${workSans.variable} antialiased`}
       data-scroll-behavior="smooth"
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col font-sans">
-        <ToastProvider>{children}</ToastProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

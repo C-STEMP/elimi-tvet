@@ -34,11 +34,17 @@ import bookOpenIcon from "@/assets/icons/book-open.svg";
 import quizIcon from "@/assets/icons/quiz.svg";
 import briefcaseIcon from "@/assets/icons/brief-case.svg";
 
-import heroImg1 from "@/public/hero-img-1.jpg";
-import heroImg2 from "@/public/hero-img-2.jpg";
-import heroImg3 from "@/public/hero-img-3.jpg";
+import heroImg1 from "@/assets/images/hero-img-1.png";
+import heroImg2 from "@/assets/images/hero-img-2.png";
+import heroImg3 from "@/assets/images/hero-img-3.png";
 import heroImg4 from "@/public/hero-img-4.jpg";
 import landingImg1 from "@/public/landing-img-1.jpg";
+import heroAvatar1 from "@/assets/images/hero_avatar_1.jpg";
+import heroAvatar2 from "@/assets/images/hero_avatar_2.jpg";
+import heroAvatar3 from "@/assets/images/hero_avatar_3.jpg";
+import womanOnSystem from "@/assets/images/woman_on_system.png";
+import redBg from "@/assets/images/red_bg.png";
+import yellowBg from "@/assets/images/yellow_bg.png";
 import deactivateStaffImg from "@/assets/icons/deactivate.svg";
 import activateStaffImg from "@/assets/icons/activate.svg";
 import shortlistApplicantImg from "@/assets/icons/shortlist-applicant.png";
@@ -46,6 +52,11 @@ import rejectApplicantImg from "@/assets/icons/reject-applicant.png";
 import warningIcon from "@/assets/icons/warning-icon.svg";
 import warningSignIcon from "@/assets/icons/warning-sign.svg";
 import cstempLogo from "@/assets/icons/cstemp.png";
+import playIcon from "@/assets/icons/play.svg";
+import accessImg from "@/assets/images/access_img.png";
+import professionImg from "@/assets/images/professional.png";
+import archiImg from "@/assets/images/archi.jpg";
+import contactBg from "@/assets/images/contact_bg.png";
 
 export {
   logoIcon,
@@ -84,6 +95,10 @@ export {
   heroImg3,
   heroImg4,
   landingImg1,
+  heroAvatar1,
+  heroAvatar2,
+  heroAvatar3,
+  womanOnSystem,
   deactivateStaffImg,
   activateStaffImg,
   shortlistApplicantImg,
@@ -91,6 +106,13 @@ export {
   warningIcon,
   warningSignIcon,
   cstempLogo,
+  playIcon,
+  redBg,
+  yellowBg,
+  accessImg,
+  professionImg,
+  archiImg,
+  contactBg,
 };
 
 export const ASSETS_URL = {
@@ -130,6 +152,10 @@ export const ASSETS_URL = {
   heroImg3,
   heroImg4,
   landingImg1,
+  heroAvatar1,
+  heroAvatar2,
+  heroAvatar3,
+  womanOnSystem,
   deactivateStaffImg,
   activateStaffImg,
   shortlistApplicantImg,
@@ -137,4 +163,11 @@ export const ASSETS_URL = {
   warningIcon,
   warningSignIcon,
   cstempLogo,
+  playIcon,
+  redBg,
+  yellowBg,
+  accessImg,
+  professionImg,
+  archiImg,
+  contactBg,
 };
