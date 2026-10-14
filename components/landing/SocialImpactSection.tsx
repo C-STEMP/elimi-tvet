@@ -43,7 +43,7 @@ export function SocialImpactSection() {
             Our Positive Social Impact
           </h2>
         </div>
-        <p className="text-xs md:text-sm lg:text-base text-[#333333] max-w-lg sm:text-right leading-relaxed font-normal">
+        <p className="text-xs md:text-sm lg:text-base text-[#333333] max-w-lg text-left sm:text-right leading-relaxed font-normal">
           Empowering youth, closing technical skills gaps, and fostering
           sustainable community growth through accredited vocational pathways.
         </p>

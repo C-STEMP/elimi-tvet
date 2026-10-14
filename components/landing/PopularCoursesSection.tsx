@@ -114,7 +114,7 @@ export function PopularCoursesSection() {
             Our Most Popular <br className="hidden sm:inline" /> Courses
           </h2>
         </div>
-        <p className="text-xs md:text-sm lg:text-base text-[#333333] max-w-lg place-self-end sm:text-right leading-relaxed font-normal">
+        <p className="text-xs md:text-sm lg:text-base text-[#333333] max-w-lg text-left sm:text-right sm:place-self-end leading-relaxed font-normal">
           Explore practical, industry-accredited vocational courses designed by
           master craftspeople to equip you with job-ready trade skills.
         </p>

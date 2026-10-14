@@ -18,7 +18,7 @@ export function DarkFooter() {
           <div className="md:col-span-5 space-y-5">
             <Logo theme="light" width={115} href="/" />
 
-            <p className="max-w-sm text-xs md:text-sm lg:text-lg text-white leading-relaxed font-normal">
+            <p className="max-w-sm text-xs sm:text-sm text-white/80 leading-relaxed font-normal">
               Nigeria&apos;s unified path from skill to certification to career,
               built on recognised qualifications and verified national
               standards.
@@ -66,10 +66,10 @@ export function DarkFooter() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 md:col-span-7">
             <div>
-              <h4 className="text-sm lg:text-2xl font-semibold text-white tracking-wide">
+              <h4 className="text-sm sm:text-base font-semibold text-white tracking-wide">
                 Quick Links
               </h4>
-              <ul className="mt-4 space-y-2.5 text-xs md:text-sm lg:text-lg text-white">
+              <ul className="mt-4 space-y-2.5 text-xs sm:text-sm text-white/80">
                 <li>
                   <a
                     href="https://cap.e-limi.africa"
@@ -109,10 +109,10 @@ export function DarkFooter() {
               </ul>
             </div>
             <div>
-              <h4 className="text-sm lg:text-2xl font-semibold text-white tracking-wide">
+              <h4 className="text-sm sm:text-base font-semibold text-white tracking-wide">
                 Who it&apos;s for
               </h4>
-              <ul className="mt-4 space-y-2.5 text-xs md:text-sm lg:text-lg text-white">
+              <ul className="mt-4 space-y-2.5 text-xs sm:text-sm text-white/80">
                 <li>
                   <a
                     href="#about"
@@ -142,10 +142,10 @@ export function DarkFooter() {
 
             {/* Legal */}
             <div>
-              <h4 className="text-sm lg:text-2xl font-semibold text-white tracking-wide">
+              <h4 className="text-sm sm:text-base font-semibold text-white tracking-wide">
                 Legal
               </h4>
-              <ul className="mt-4 space-y-2.5 text-xs md:text-sm lg:text-lg text-white">
+              <ul className="mt-4 space-y-2.5 text-xs sm:text-sm text-white/80">
                 <li>
                   <Link
                     href="#terms"
