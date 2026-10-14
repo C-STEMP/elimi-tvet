@@ -58,7 +58,7 @@ export function ContactDetailsAndForm() {
             <span className="text-xs font-bold tracking-widest text-gray-400 uppercase">
               CONTACT DETAILS
             </span>
-            <h2 className="mt-2 text-2xl sm:text-3xl font-extrabold text-[#1E1E1E] tracking-tight">
+            <h2 className="mt-2 text-2xl sm:text-3xl font-extrabold text-text-dark tracking-tight">
               Multiple Ways To Reach Us
             </h2>
             <p className="mt-3 text-xs sm:text-sm text-gray-500 leading-relaxed font-normal">
@@ -116,9 +116,9 @@ export function ContactDetailsAndForm() {
 
         {/* Right Column: Contact Form */}
         <div className="lg:col-span-7">
-          <div className="rounded-3xl bg-white border border-gray-100 p-6 sm:p-10 shadow-xl shadow-gray-100/70">
+          <div className="rounded-3xl bg-input-bg border border-gray-100 p-6 sm:p-10 shadow-xl shadow-gray-100/70">
             <div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#1E1E1E] tracking-tight">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-text-dark tracking-tight">
                 Contact Us
               </h3>
               <p className="mt-1 text-xs sm:text-sm text-gray-400">
