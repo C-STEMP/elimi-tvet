@@ -64,7 +64,7 @@ export function FaqAccordionSection() {
             Frequently Asked Questions
           </h2>
         </div>
-        <p className="text-xs md:text-sm lg:text-base text-[#333333] max-w-lg sm:text-right leading-relaxed font-normal">
+        <p className="text-xs md:text-sm lg:text-base text-[#333333] max-w-lg text-left sm:text-right leading-relaxed font-normal">
           Find clear answers to common questions about our vocational courses,
           competency assessments, and career placement services.
         </p>
@@ -87,7 +87,7 @@ export function FaqAccordionSection() {
               <button
                 type="button"
                 onClick={() => toggle(faq.id)}
-                className="w-full flex items-center justify-between p-5 sm:p-6 text-left cursor-pointer focus:outline-none"
+                className="w-full flex items-center justify-between p-4 sm:p-6 text-left cursor-pointer focus:outline-none"
               >
                 <span className="text-sm sm:text-base font-bold text-[#333333] pr-4">
                   {faq.question}
@@ -99,7 +99,7 @@ export function FaqAccordionSection() {
               </button>
 
               {isOpen && (
-                <div className="px-5 sm:px-6 pb-5 sm:pb-6 text-xs sm:text-sm text-gray-600 leading-relaxed font-normal border-t border-gray-100/60 pt-3">
+                <div className="px-4 sm:px-6 pb-4 sm:pb-6 text-xs sm:text-sm text-gray-600 leading-relaxed font-normal border-t border-gray-100/60 pt-3">
                   {faq.answer}
                 </div>
               )}

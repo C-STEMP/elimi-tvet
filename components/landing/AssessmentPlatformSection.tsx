@@ -5,7 +5,7 @@ import { accessImg, redBg, yellowBg } from "@/assets";
 
 export function AssessmentPlatformSection() {
   return (
-    <section className="w-full bg-primary/10 p-4 sm:px-6 lg:p-8 xl:p-15">
+    <section className="w-full bg-primary/10 px-4 py-10 sm:px-6 sm:py-14 lg:p-8 xl:p-15">
       <div data-aos="fade-up" className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10">
         <div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#333333] tracking-tight leading-tight max-w-xl">
@@ -13,7 +13,7 @@ export function AssessmentPlatformSection() {
             Competency Assessment Platform
           </h2>
         </div>
-        <p className="text-xs md:text-sm lg:text-base text-[#333333] max-w-lg sm:text-right leading-relaxed font-normal">
+        <p className="text-xs md:text-sm lg:text-base text-[#333333] max-w-lg text-left sm:text-right leading-relaxed font-normal">
           Validate your skills through standardized assessments, earn accredited
           certifications, and unlock new career opportunities.
         </p>

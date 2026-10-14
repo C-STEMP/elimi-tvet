@@ -15,14 +15,13 @@ export function WorkforceCtaBanner({
 }: WorkforceCtaBannerProps) {
   return (
     <section className="relative w-full mt-4">
-      {/* Background split: Top half is white (page background), bottom half is dark (#202529) connecting seamlessly to DarkFooter */}
       <div className="absolute bottom-0 inset-x-0 h-1/2 bg-[#333333] pointer-events-none" />
 
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 xl:px-15 mx-auto">
         <div
           data-aos="zoom-in"
           data-aos-duration="900"
-          className="relative overflow-hidden rounded-3xl sm:rounded-[36px] bg-[#1E242B] py-14 sm:py-20 px-6 sm:px-12 lg:px-20 text-center shadow-2xl"
+          className="relative overflow-hidden rounded-3xl sm:rounded-[36px] bg-[#1E242B] py-10 sm:py-16 md:py-20 px-5 sm:px-12 lg:px-20 text-center shadow-2xl"
         >
           <Image
             src={archiImg}
@@ -34,11 +33,11 @@ export function WorkforceCtaBanner({
 
           <div className="absolute inset-0 bg-black/40 z-0" />
 
-          <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
+          <div className="relative z-10 max-w-7xl lg:max-w-4xl mx-auto flex flex-col items-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-extrabold text-white tracking-tight leading-tight">
               Build A Stronger, More Skilled Workforce
             </h2>
-            <p className="mt-4 text-xs sm:text-sm md:text-base text-white leading-relaxed font-normal">
+            <p className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base text-white leading-relaxed font-normal">
               Give your team the skills they need to perform better, adapt
               faster, and grow with your organization. With Elimi, organizations
               can train, assess, and develop their employees through practical,
@@ -49,14 +48,14 @@ export function WorkforceCtaBanner({
               <button
                 type="button"
                 onClick={() => onOpenAuthModal("register")}
-                className="mt-8 inline-block rounded-xl bg-secondary px-8 sm:px-12 py-3 sm:py-3.5 text-xs sm:text-sm font-bold text-white shadow-lg hover:bg-secondary-hover transition-all cursor-pointer active:scale-95"
+                className="mt-6 sm:mt-8 inline-block rounded-xl bg-secondary px-8 sm:px-12 py-3 sm:py-3.5 text-xs sm:text-sm font-bold text-white shadow-lg hover:bg-secondary-hover transition-all cursor-pointer active:scale-95"
               >
                 Get Started
               </button>
             ) : (
               <Link
                 href="/gateway?mode=register"
-                className="mt-8 inline-block rounded-xl bg-secondary px-8 sm:px-12 py-3 sm:py-3.5 text-xs sm:text-sm font-bold text-white shadow-lg hover:bg-secondary-hover transition-all cursor-pointer"
+                className="mt-6 sm:mt-8 inline-block rounded-xl bg-secondary px-8 sm:px-12 py-3 sm:py-3.5 text-xs sm:text-sm font-bold text-white shadow-lg hover:bg-secondary-hover transition-all cursor-pointer"
               >
                 Get Started
               </Link>

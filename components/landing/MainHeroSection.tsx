@@ -21,13 +21,13 @@ interface MainHeroSectionProps {
 
 export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
   return (
-    <section className="w-full px-4 sm:px-6 lg:px-8 xl:px-15 mx-auto pt-4 sm:pt-6 pb-8">
-      <div className="relative overflow-hidden rounded-[28px] sm:rounded-[36px] bg-[#FEEED3] border border-[#FEEAD4]/60 p-6 sm:p-10 lg:p-14">
-        <div className="flex flex-col xl:flex-row items-center justify-between gap-10 xl:gap-8">
-          <div className="w-full xl:max-w-122.5 flex flex-col items-start space-y-5 sm:space-y-6 shrink-0">
+    <section className="w-full px-3 xs:px-4 sm:px-6 lg:px-8 xl:px-15 mx-auto pt-3 sm:pt-6 pb-6 sm:pb-8">
+      <div className="relative overflow-hidden rounded-3xl sm:rounded-[36px] bg-[#FEEED3] border border-[#FEEAD4]/60 p-5 xs:p-6 sm:p-10 lg:p-14">
+        <div className="flex flex-col xl:flex-row items-center justify-between gap-8 sm:gap-10 xl:gap-8">
+          <div className="w-full xl:max-w-122.5 flex flex-col items-start space-y-4 sm:space-y-6 shrink-0">
             <div
               data-aos="fade-down"
-              className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 shadow-xs border border-[#FDE0C2] text-xs font-semibold text-gray-800 select-none"
+              className="inline-flex items-center gap-1 lg:gap-2 rounded-full bg-white px-3 py-1.5 shadow-xs border border-[#FDE0C2] text-xs font-semibold text-gray-800 select-none"
             >
               <div className="flex items-center -space-x-1.5">
                 <Image
@@ -58,8 +58,10 @@ export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
 
               <div className="flex items-center gap-1">
                 <TiStarFullOutline className="w-3.5 h-3.5 text-secondary fill-amber-500" />
-                <span className="font-medium text-sm text-[#333333]">5.0</span>
-                <span className="text-[#333333] text-sm font-medium">
+                <span className="font-medium text-xs lg:text-sm text-[#333333]">
+                  5.0
+                </span>
+                <span className="text-[#333333] text-xs lg:text-sm font-medium">
                   (2k+ Happy Learners)
                 </span>
               </div>
@@ -68,7 +70,7 @@ export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
             <h1
               data-aos="fade-up"
               data-aos-delay="100"
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold text-text-dark tracking-tight leading-[1.12]"
+              className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold text-text-dark tracking-tight leading-[1.12]"
             >
               Unlock Skills That <br className="hidden sm:inline" />
               Will Shape Your <br className="hidden sm:inline" />
@@ -90,14 +92,14 @@ export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
                 <button
                   type="button"
                   onClick={() => onOpenAuthModal("register")}
-                  className="inline-block rounded-xl bg-secondary px-8 sm:px-10 py-3.5 sm:py-4 text-xs md:text-sm lg:text-base font-bold text-white shadow-md hover:bg-secondary-hover transition-all cursor-pointer active:scale-95"
+                  className="inline-block rounded-xl bg-secondary px-7 sm:px-10 py-3 sm:py-4 text-xs md:text-sm lg:text-base font-bold text-white shadow-md hover:bg-secondary-hover transition-all cursor-pointer active:scale-95"
                 >
                   Get Started
                 </button>
               ) : (
                 <Link
                   href="/gateway?mode=register"
-                  className="inline-block rounded-xl bg-secondary px-8 sm:px-10 py-3.5 sm:py-4 text-xs sm:text-sm font-bold text-white shadow-md hover:bg-secondary-hover transition-all cursor-pointer"
+                  className="inline-block rounded-xl bg-secondary px-7 sm:px-10 py-3 sm:py-4 text-xs sm:text-sm font-bold text-white shadow-md hover:bg-secondary-hover transition-all cursor-pointer"
                 >
                   Get Started
                 </Link>
@@ -105,9 +107,9 @@ export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
             </div>
           </div>
 
-          <div className="w-full xl:w-auto flex items-center justify-center xl:justify-end overflow-visible pt-4 xl:pt-0">
-            <div className="relative flex items-center gap-4 sm:gap-6 shrink-0 scale-[0.62] xs:scale-[0.72] sm:scale-[0.85] md:scale-95 lg:scale-90 xl:scale-100 origin-center xl:origin-right -my-15 xs:my-[-40px] sm:-my-5 md:my-0">
-              <div className="flex flex-col gap-4 sm:gap-6 items-end">
+          <div className="w-full xl:w-145 2xl:w-155 flex items-center justify-center xl:justify-end pt-4 xl:pt-0">
+            <div className="relative w-full max-w-120 sm:max-w-140 xl:max-w-none grid grid-cols-[1.38fr_1fr] items-center gap-2.5 sm:gap-4 md:gap-5">
+              <div className="flex flex-col gap-2.5 sm:gap-4 md:gap-5 items-end w-full">
                 {/* Top Image: Worker in hardhat (playful spring pop + gentle float) */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.7, y: 30, rotate: -2 }}
@@ -118,7 +120,7 @@ export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
                     damping: 13,
                     delay: 0.15,
                   }}
-                  className="relative w-69 h-69 shrink-0"
+                  className="relative w-[74%] aspect-square shrink-0"
                 >
                   <motion.div
                     animate={{ y: [0, -6, 0] }}
@@ -134,7 +136,7 @@ export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
                       src={heroImg1}
                       alt="Skilled technician"
                       fill
-                      sizes="(max-width: 768px) 200px, 276px"
+                      sizes="(max-width: 640px) 150px, (max-width: 1024px) 240px, 276px"
                       priority
                       className="object-contain"
                     />
@@ -149,7 +151,7 @@ export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
                         damping: 10,
                         delay: 0.45,
                       }}
-                      className="absolute -top-5 -right-4.75 w-14 h-14 bg-[#FEEED3] rounded-full flex items-center justify-center z-20 select-none"
+                      className="absolute -top-2 -right-2 sm:-top-3.5 sm:-right-3.5 md:-top-4 md:-right-4 w-9 h-9 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-[#FEEED3] rounded-full flex items-center justify-center z-20 select-none shadow-xs"
                     >
                       <motion.button
                         type="button"
@@ -164,7 +166,7 @@ export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
                             ease: "easeInOut",
                           },
                         }}
-                        className="w-6.5 h-6.5 flex items-center justify-center rounded-full cursor-pointer"
+                        className="w-5 h-5 sm:w-6.5 sm:h-6.5 flex items-center justify-center rounded-full cursor-pointer"
                       >
                         <Image
                           src={playIcon}
@@ -172,7 +174,7 @@ export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
                           width={26}
                           height={26}
                           priority
-                          className="w-6.5 h-6.5 object-contain drop-shadow-xs"
+                          className="w-4 h-4 sm:w-5 sm:h-5 md:w-6.5 md:h-6.5 object-contain drop-shadow-xs"
                         />
                       </motion.button>
                     </motion.div>
@@ -189,7 +191,7 @@ export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
                     damping: 13,
                     delay: 0.3,
                   }}
-                  className="relative w-95.25 h-52.5 shrink-0"
+                  className="relative w-full aspect-381/210 shrink-0"
                 >
                   <motion.div
                     animate={{ y: [0, 6, 0] }}
@@ -205,12 +207,12 @@ export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
                       src={womanOnSystem}
                       alt="Trainee learning on laptop"
                       fill
-                      sizes="(max-width: 768px) 280px, 381px"
+                      sizes="(max-width: 640px) 240px, (max-width: 1024px) 340px, 381px"
                       priority
                       className="object-contain"
                     />
 
-                    {/* Cute 2k+ Courses Badge */}
+                    {/* Cute 2k+ Courses Badge (Pill floating in cutout) */}
                     <motion.a
                       href="#courses"
                       onClick={(e) => {
@@ -229,11 +231,11 @@ export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
                       }}
                       whileHover={{ scale: 1.06, y: -2 }}
                       whileTap={{ scale: 0.94 }}
-                      className="absolute top-0 right-0 w-50 h-16.75 bg-[#FAB951] hover:bg-[#F9AE3B] text-[#222222] font-bold text-[18px] tracking-tight rounded-[18px] flex items-center justify-center gap-3 shadow-xs hover:shadow-md transition-all cursor-pointer z-10 select-none"
+                      className="absolute top-[4%] right-[2%] sm:top-[5%] sm:right-[3%] w-[51%] sm:w-[48%] h-[27%] sm:h-[28%] max-h-16.75 bg-[#FAB951] hover:bg-[#F9AE3B] text-[#222222] font-bold text-[8.5px] min-[360px]:text-[10px] sm:text-xs md:text-sm lg:text-[15px] xl:text-[16px] tracking-tight rounded-md xs:rounded-lg sm:rounded-xl md:rounded-2xl flex items-center justify-center gap-1 sm:gap-2 md:gap-2.5 px-1 xs:px-2 sm:px-3 shadow-xs hover:shadow-md transition-all cursor-pointer z-10 select-none whitespace-nowrap"
                       aria-label="Explore 2k+ Courses"
                     >
                       <svg
-                        className="w-5.5 h-4.5 text-[#222222] shrink-0"
+                        className="w-2.5 h-2 xs:w-3.5 xs:h-2.5 sm:w-4 sm:h-3.5 md:w-5 md:h-4 text-[#222222] shrink-0"
                         viewBox="0 0 24 18"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -256,7 +258,9 @@ export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
                           strokeLinejoin="round"
                         />
                       </svg>
-                      <span>2k+ Courses</span>
+                      <span className="whitespace-nowrap font-bold text-[#222222]">
+                        2k+ Courses
+                      </span>
                     </motion.a>
                   </motion.div>
                 </motion.div>
@@ -272,7 +276,7 @@ export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
                   damping: 14,
                   delay: 0.4,
                 }}
-                className="relative w-69 h-86.75 rounded-2xl overflow-hidden shrink-0 self-center shadow-xs"
+                className="relative w-full aspect-[276/347] rounded-xl sm:rounded-2xl overflow-hidden shrink-0 self-center shadow-xs"
               >
                 <motion.div
                   animate={{ y: [0, -5, 0] }}
@@ -288,7 +292,7 @@ export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
                     src={heroImg2}
                     alt="Certified construction workers"
                     fill
-                    sizes="(max-width: 768px) 200px, 276px"
+                    sizes="(max-width: 640px) 160px, (max-width: 1024px) 240px, 276px"
                     priority
                     className="object-cover"
                   />
