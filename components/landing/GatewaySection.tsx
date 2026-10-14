@@ -237,6 +237,7 @@ export function GatewaySection({
                     src="/card-white.png"
                     alt=""
                     fill
+                    sizes="(max-width: 768px) 60vw, 30vw"
                     className="object-cover object-right"
                   />
                 </div>

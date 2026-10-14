@@ -29,6 +29,7 @@ export function AssessmentPlatformSection() {
             src={redBg}
             alt="Standard Assessment Background"
             fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover object-center pointer-events-none select-none"
             priority
           />
@@ -88,6 +89,7 @@ export function AssessmentPlatformSection() {
             src={yellowBg}
             alt="RPL Background"
             fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover object-center pointer-events-none select-none"
             priority
           />

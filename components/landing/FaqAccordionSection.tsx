@@ -1,8 +1,8 @@
 "use client";
 
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import React, { useState } from "react";
-import { HiChevronDown, HiMinus } from "react-icons/hi";
+import { motion, AnimatePresence } from "framer-motion";
 
 const FAQS = [
   {
@@ -58,7 +58,10 @@ export function FaqAccordionSection() {
 
   return (
     <section className="w-full px-4 sm:px-6 lg:px-8 xl:px-15 mx-auto py-12 lg:py-16">
-      <div data-aos="fade-up" className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+      <div
+        data-aos="fade-up"
+        className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10"
+      >
         <div>
           <h2 className="text-2xl lg:text-3xl xl:text-4xl font-semibold text-[#333333] tracking-tight">
             Frequently Asked Questions
@@ -70,15 +73,17 @@ export function FaqAccordionSection() {
         </p>
       </div>
 
-      <div className="space-y-3.5 mx-auto">
-        {FAQS.map((faq, idx) => {
+      <div
+        data-aos="fade-up"
+        data-aos-delay="100"
+        className="space-y-3.5 mx-auto"
+      >
+        {FAQS.map((faq) => {
           const isOpen = openId === faq.id;
           return (
             <div
               key={faq.id}
-              data-aos="fade-up"
-              data-aos-delay={(idx % 5) * 80 + 50}
-              className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
+              className={`rounded-2xl border transition-colors duration-200 overflow-hidden ${
                 isOpen
                   ? "border-gray-200 bg-input-bg shadow-xs"
                   : "border-gray-100 bg-input-bg hover:border-gray-200"
@@ -87,22 +92,40 @@ export function FaqAccordionSection() {
               <button
                 type="button"
                 onClick={() => toggle(faq.id)}
-                className="w-full flex items-center justify-between p-4 sm:p-6 text-left cursor-pointer focus:outline-none"
+                className="w-full flex items-center justify-between p-4 sm:p-6 text-left cursor-pointer focus:outline-none select-none"
               >
-                <span className="text-sm sm:text-base font-bold text-[#333333] pr-4">
+                <span className="text-sm sm:text-base font-bold text-[#333333] pr-4 leading-snug">
                   {faq.question}
                 </span>
 
-                <div className="shrink-0 h-8 w-8 rounded-full bg-white flex items-center justify-center text-black">
-                  {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                </div>
+                <motion.div
+                  animate={{ rotate: isOpen ? 180 : 0 }}
+                  transition={{ duration: 0.25, ease: "easeInOut" }}
+                  className="shrink-0 h-8 w-8 rounded-full bg-white flex items-center justify-center text-black shadow-xs"
+                >
+                  <ChevronDown size={18} />
+                </motion.div>
               </button>
 
-              {isOpen && (
-                <div className="px-4 sm:px-6 pb-4 sm:pb-6 text-xs sm:text-sm text-gray-600 leading-relaxed font-normal border-t border-gray-100/60 pt-3">
-                  {faq.answer}
-                </div>
-              )}
+              <AnimatePresence initial={false}>
+                {isOpen && (
+                  <motion.div
+                    key="content"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{
+                      duration: 0.3,
+                      ease: [0.04, 0.62, 0.23, 0.98],
+                    }}
+                    className="overflow-hidden"
+                  >
+                    <div className="px-4 sm:px-6 pb-4 sm:pb-6 text-xs sm:text-sm text-gray-600 leading-relaxed font-normal border-t border-gray-100/60 pt-3">
+                      {faq.answer}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           );
         })}
