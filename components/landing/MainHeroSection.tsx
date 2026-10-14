@@ -212,7 +212,7 @@ export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
                       className="object-contain"
                     />
 
-                    {/* Cute 2k+ Courses Badge (Pill floating in cutout) */}
+                    {/* Cute 2k+ Courses Badge (Matching Figma cutout alignment) */}
                     <motion.a
                       href="#courses"
                       onClick={(e) => {
@@ -229,13 +229,13 @@ export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
                         damping: 11,
                         delay: 0.55,
                       }}
-                      whileHover={{ scale: 1.06, y: -2 }}
-                      whileTap={{ scale: 0.94 }}
-                      className="absolute top-[4%] right-[2%] sm:top-[5%] sm:right-[3%] w-[51%] sm:w-[48%] h-[27%] sm:h-[28%] max-h-16.75 bg-[#FAB951] hover:bg-[#F9AE3B] text-[#222222] font-bold text-[8.5px] min-[360px]:text-[10px] sm:text-xs md:text-sm lg:text-[15px] xl:text-[16px] tracking-tight rounded-md xs:rounded-lg sm:rounded-xl md:rounded-2xl flex items-center justify-center gap-1 sm:gap-2 md:gap-2.5 px-1 xs:px-2 sm:px-3 shadow-xs hover:shadow-md transition-all cursor-pointer z-10 select-none whitespace-nowrap"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="absolute top-0 right-0 w-[53%] h-[32%] bg-[#FAB951] hover:bg-[#F9AE3B] text-[#222222] font-bold text-[8.5px] min-[360px]:text-[9.5px] xs:text-[10.5px] sm:text-xs md:text-sm lg:text-[16px] tracking-tight rounded-md xs:rounded-lg sm:rounded-xl md:rounded-[18px] flex items-center justify-center gap-1 xs:gap-1.5 sm:gap-2 md:gap-2.5 px-1 xs:px-1.5 sm:px-2.5 shadow-xs hover:shadow-md transition-all cursor-pointer z-10 select-none whitespace-nowrap"
                       aria-label="Explore 2k+ Courses"
                     >
                       <svg
-                        className="w-2.5 h-2 xs:w-3.5 xs:h-2.5 sm:w-4 sm:h-3.5 md:w-5 md:h-4 text-[#222222] shrink-0"
+                        className="w-2.5 h-2 xs:w-3.5 xs:h-2.5 sm:w-4.5 sm:h-3.5 md:w-5 md:h-4 text-[#222222] shrink-0"
                         viewBox="0 0 24 18"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -276,7 +276,7 @@ export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
                   damping: 14,
                   delay: 0.4,
                 }}
-                className="relative w-full aspect-[276/347] rounded-xl sm:rounded-2xl overflow-hidden shrink-0 self-center shadow-xs"
+                className="relative w-full aspect-276/347 rounded-xl sm:rounded-2xl overflow-hidden shrink-0 self-center shadow-xs"
               >
                 <motion.div
                   animate={{ y: [0, -5, 0] }}
