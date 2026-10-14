@@ -1,5 +1,6 @@
 "use client";
 
+import { ChevronDown, ChevronUp } from "lucide-react";
 import React, { useState } from "react";
 import { HiChevronDown, HiMinus } from "react-icons/hi";
 
@@ -59,11 +60,11 @@ export function FaqAccordionSection() {
     <section className="w-full px-4 sm:px-6 lg:px-8 xl:px-15 mx-auto py-12 lg:py-16">
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
         <div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-text-dark tracking-tight">
+          <h2 className="text-2xl lg:text-3xl xl:text-4xl font-semibold text-[#333333] tracking-tight">
             Frequently Asked Questions
           </h2>
         </div>
-        <p className="text-xs sm:text-sm text-gray-500 max-w-sm sm:text-right leading-relaxed font-normal">
+        <p className="text-xs md:text-sm lg:text-base text-[#333333] max-w-lg sm:text-right leading-relaxed font-normal">
           Lorem ipsum dolor sit amet consectetur. Pellentesque vel quam in nisl
           pretium non dui scelerisque varius tristique mollis vitae.
         </p>
@@ -77,8 +78,8 @@ export function FaqAccordionSection() {
               key={faq.id}
               className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
                 isOpen
-                  ? "border-gray-200 bg-[#F9FAFC] shadow-xs"
-                  : "border-gray-100 bg-white hover:border-gray-200"
+                  ? "border-gray-200 bg-input-bg shadow-xs"
+                  : "border-gray-100 bg-input-bg hover:border-gray-200"
               }`}
             >
               <button
@@ -86,16 +87,12 @@ export function FaqAccordionSection() {
                 onClick={() => toggle(faq.id)}
                 className="w-full flex items-center justify-between p-5 sm:p-6 text-left cursor-pointer focus:outline-none"
               >
-                <span className="text-sm sm:text-base font-bold text-text-dark pr-4">
+                <span className="text-sm sm:text-base font-bold text-[#333333] pr-4">
                   {faq.question}
                 </span>
 
-                <div className="shrink-0 h-7 w-7 rounded-full bg-gray-100 flex items-center justify-center text-gray-500">
-                  {isOpen ? (
-                    <HiMinus className="w-4 h-4 text-gray-700" />
-                  ) : (
-                    <HiChevronDown className="w-4 h-4 text-gray-600" />
-                  )}
+                <div className="shrink-0 h-8 w-8 rounded-full bg-white flex items-center justify-center text-black">
+                  {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                 </div>
               </button>
 

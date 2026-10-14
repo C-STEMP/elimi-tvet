@@ -43,6 +43,8 @@ import heroAvatar1 from "@/assets/images/hero_avatar_1.jpg";
 import heroAvatar2 from "@/assets/images/hero_avatar_2.jpg";
 import heroAvatar3 from "@/assets/images/hero_avatar_3.jpg";
 import womanOnSystem from "@/assets/images/woman_on_system.png";
+import redBg from "@/assets/images/red_bg.png";
+import yellowBg from "@/assets/images/yellow_bg.png";
 import deactivateStaffImg from "@/assets/icons/deactivate.svg";
 import activateStaffImg from "@/assets/icons/activate.svg";
 import shortlistApplicantImg from "@/assets/icons/shortlist-applicant.png";
@@ -51,6 +53,10 @@ import warningIcon from "@/assets/icons/warning-icon.svg";
 import warningSignIcon from "@/assets/icons/warning-sign.svg";
 import cstempLogo from "@/assets/icons/cstemp.png";
 import playIcon from "@/assets/icons/play.svg";
+import accessImg from "@/assets/images/access_img.png";
+import professionImg from "@/assets/images/professional.png";
+import archiImg from "@/assets/images/archi.jpg";
+import contactBg from "@/assets/images/contact_bg.png";
 
 export {
   logoIcon,
@@ -101,6 +107,12 @@ export {
   warningSignIcon,
   cstempLogo,
   playIcon,
+  redBg,
+  yellowBg,
+  accessImg,
+  professionImg,
+  archiImg,
+  contactBg,
 };
 
 export const ASSETS_URL = {
@@ -152,4 +164,10 @@ export const ASSETS_URL = {
   warningSignIcon,
   cstempLogo,
   playIcon,
+  redBg,
+  yellowBg,
+  accessImg,
+  professionImg,
+  archiImg,
+  contactBg,
 };

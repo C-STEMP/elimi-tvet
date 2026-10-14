@@ -12,13 +12,13 @@ import {
 
 export function DarkFooter() {
   return (
-    <footer className="w-full bg-[#202529] text-white/80 pt-16 pb-10 border-t border-white/10">
+    <footer className="w-full bg-[#333333] text-white/80 pt-12 sm:pt-16 pb-10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
           <div className="md:col-span-5 space-y-5">
             <Logo theme="light" width={115} href="/" />
 
-            <p className="max-w-sm text-xs sm:text-sm text-white/70 leading-relaxed font-normal">
+            <p className="max-w-sm text-xs md:text-sm lg:text-lg text-white leading-relaxed font-normal">
               Nigeria&apos;s unified path from skill to certification to career,
               built on recognised qualifications and verified national
               standards.
@@ -66,10 +66,10 @@ export function DarkFooter() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 md:col-span-7">
             <div>
-              <h4 className="text-sm font-bold text-white tracking-wide">
+              <h4 className="text-sm lg:text-2xl font-semibold text-white tracking-wide">
                 Quick Links
               </h4>
-              <ul className="mt-4 space-y-2.5 text-xs sm:text-sm text-white/70">
+              <ul className="mt-4 space-y-2.5 text-xs md:text-sm lg:text-lg text-white">
                 <li>
                   <a
                     href="https://cap.e-limi.africa"
@@ -109,10 +109,10 @@ export function DarkFooter() {
               </ul>
             </div>
             <div>
-              <h4 className="text-sm font-bold text-white tracking-wide">
+              <h4 className="text-sm lg:text-2xl font-semibold text-white tracking-wide">
                 Who it&apos;s for
               </h4>
-              <ul className="mt-4 space-y-2.5 text-xs sm:text-sm text-white/70">
+              <ul className="mt-4 space-y-2.5 text-xs md:text-sm lg:text-lg text-white">
                 <li>
                   <a
                     href="#about"
@@ -142,10 +142,10 @@ export function DarkFooter() {
 
             {/* Legal */}
             <div>
-              <h4 className="text-sm font-bold text-white tracking-wide">
+              <h4 className="text-sm lg:text-2xl font-semibold text-white tracking-wide">
                 Legal
               </h4>
-              <ul className="mt-4 space-y-2.5 text-xs sm:text-sm text-white/70">
+              <ul className="mt-4 space-y-2.5 text-xs md:text-sm lg:text-lg text-white">
                 <li>
                   <Link
                     href="#terms"
@@ -176,7 +176,7 @@ export function DarkFooter() {
         </div>
 
         {/* Bottom Bar: Divider, Copyright & Sitemap */}
-        <div className="mt-12 sm:mt-16 border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-white/60 gap-3">
+        <div className="mt-12 sm:mt-16 border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-white gap-3">
           <div className="hidden sm:block w-16" />
           <div className="text-center font-medium tracking-wider">
             ELIMI 2026

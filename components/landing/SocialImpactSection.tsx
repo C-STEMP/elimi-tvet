@@ -39,11 +39,11 @@ export function SocialImpactSection() {
     <section className="w-full px-4 sm:px-6 lg:px-8 xl:px-15 mx-auto py-12 lg:py-16">
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
         <div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-text-dark tracking-tight">
+          <h2 className="text-2xl lg:text-3xl xl:text-4xl font-semibold text-[#333333] tracking-tight">
             Our Positive Social Impact
           </h2>
         </div>
-        <p className="text-xs sm:text-sm text-gray-500 max-w-sm sm:text-right leading-relaxed font-normal">
+        <p className="text-xs md:text-sm lg:text-base text-[#333333] max-w-lg sm:text-right leading-relaxed font-normal">
           Lorem ipsum dolor sit amet consectetur. Pellentesque vel quam in nisl
           pretium non dui scelerisque varius tristique mollis vitae.
         </p>
@@ -53,7 +53,7 @@ export function SocialImpactSection() {
         {TESTIMONIALS.map((t) => (
           <div
             key={t.id}
-            className="rounded-2xl border border-rose-100 bg-[#FCF8F9] p-6 sm:p-7 flex flex-col justify-between shadow-xs hover:shadow-md transition-all"
+            className="rounded-2xl border border-rose-100 bg-primary/10 p-6 sm:p-7 flex flex-col justify-between shadow-xs hover:shadow-md transition-all"
           >
             <div>
               <div className="flex items-center gap-1 text-secondary mb-4">
@@ -62,14 +62,16 @@ export function SocialImpactSection() {
                 ))}
               </div>
 
-              <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-normal">
+              <p className="text-xs md:text-sm lg:text-lg text-[#111827] leading-relaxed font-normal italic">
                 {t.quote}
               </p>
             </div>
 
             <div className="mt-6 pt-4 border-t border-gray-200/60">
-              <h4 className="text-sm font-bold text-gray-900">{t.name}</h4>
-              <p className="text-[11px] text-gray-500 font-medium mt-0.5 leading-snug">
+              <h4 className="text-sm lg:text-base font-bold text-[#111827]">
+                {t.name}
+              </h4>
+              <p className="text-xs text-[#6B7280] font-medium mt-0.5 leading-snug">
                 {t.role}
               </p>
             </div>
