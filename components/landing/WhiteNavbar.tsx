@@ -20,8 +20,8 @@ const NAV_LINKS = [
   { label: "Assessment", href: "https://cap.e-limi.africa/", external: true },
   {
     label: "Workmasters",
-    href: "https://workmasters.elimi.africa/",
-    external: true,
+    href: "/workmasters",
+    external: false,
   },
   { label: "Contact Us", href: "/contact" },
 ];

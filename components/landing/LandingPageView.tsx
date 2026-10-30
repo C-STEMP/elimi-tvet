@@ -40,11 +40,13 @@ export function LandingPageView() {
       </main>
       <DarkFooter />
 
-      <PlatformSelectModal
-        isOpen={authModalOpen}
-        initialMode={authMode}
-        onClose={() => setAuthModalOpen(false)}
-      />
+      {authModalOpen && (
+        <PlatformSelectModal
+          isOpen={authModalOpen}
+          initialMode={authMode}
+          onClose={() => setAuthModalOpen(false)}
+        />
+      )}
     </div>
   </AosProvider>
 );

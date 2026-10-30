@@ -357,7 +357,7 @@ export function useGoogleAuth() {
   const { toast } = useToast();
 
   const mutation = useMutation({
-    mutationFn: (idToken: string) => googleAuthApi({ idToken }),
+    mutationFn: (idToken: string) => googleAuthApi({ idToken, intents: ["cap", "lms"] }),
 
     onSuccess: (data) => {
       saveTokens(data.accessToken, data.refreshToken);

@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import CountUp from "react-countup";
 import { professionImg } from "@/assets";
 
@@ -21,14 +22,12 @@ export function JobPortalSection() {
               Connect with vetted technicians, skilled artisans, and top
               employers across the nation.
             </p>
-            <a
-              href="https://workmasters.elimi.africa/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/workmasters"
               className="inline-block rounded-xl bg-secondary px-7 py-2.5 text-xs sm:text-sm font-bold text-white shadow-xs hover:bg-secondary-hover transition-all cursor-pointer self-start sm:self-auto"
             >
               Find Workers
-            </a>
+            </Link>
           </div>
         </div>
 
