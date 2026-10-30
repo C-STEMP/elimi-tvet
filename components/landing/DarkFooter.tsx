@@ -91,12 +91,12 @@ export function DarkFooter() {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#workmasters"
+                  <Link
+                    href="/workmasters"
                     className="hover:text-white transition-colors"
                   >
                     WorkMasters
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a

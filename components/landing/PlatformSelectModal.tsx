@@ -66,13 +66,30 @@ export function PlatformSelectModal({
 }: PlatformSelectModalProps) {
   const router = useRouter();
   const [authMode, setAuthMode] = useState<AuthMode>(initialMode);
-  const [selectedPlatform, setSelectedPlatform] = useState<Platform>("organization");
+  const [selectedPlatform, setSelectedPlatform] = useState<Platform>(
+    initialMode === "register" ? "lms" : "organization"
+  );
+  const [prevIsOpen, setPrevIsOpen] = useState(isOpen);
+  const [prevInitialMode, setPrevInitialMode] = useState(initialMode);
 
-  useEffect(() => {
+  if (isOpen !== prevIsOpen || initialMode !== prevInitialMode) {
+    setPrevIsOpen(isOpen);
+    setPrevInitialMode(initialMode);
     if (isOpen) {
       setAuthMode(initialMode);
+      setSelectedPlatform(initialMode === "register" ? "lms" : "organization");
     }
-  }, [isOpen, initialMode]);
+  }
+
+  const isLogin = authMode === "login";
+
+  const isPlatformDisabled = (platformId: Platform) =>
+    !isLogin && (platformId === "organization" || platformId === "workmasters");
+
+  // In register mode, if the selected platform is disabled, fall back to "lms"
+  const effectivePlatform: Platform = isPlatformDisabled(selectedPlatform)
+    ? "lms"
+    : selectedPlatform;
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -90,9 +107,15 @@ export function PlatformSelectModal({
 
   if (!isOpen) return null;
 
-  const isLogin = authMode === "login";
-
-  const handleProceed = (platform: Platform = selectedPlatform) => {
+  const handleProceed = (platform: Platform = effectivePlatform) => {
+    if (platform === "workmasters") {
+      onClose();
+      router.push("/workmasters");
+      return;
+    }
+    if (isPlatformDisabled(platform)) {
+      return;
+    }
     onClose();
     if (platform === "organization") {
       router.push(isLogin ? "/login" : "/register");
@@ -110,13 +133,6 @@ export function PlatformSelectModal({
       window.location.href = isLogin
         ? "https://training.elimi.africa/login"
         : "https://training.elimi.africa/register";
-      return;
-    }
-
-    if (platform === "workmasters") {
-      window.location.href = isLogin
-        ? "https://workmasters.elimi.africa/login"
-        : "https://workmasters.elimi.africa/register";
       return;
     }
   };
@@ -158,7 +174,15 @@ export function PlatformSelectModal({
             </button>
             <button
               type="button"
-              onClick={() => setAuthMode("register")}
+              onClick={() => {
+                setAuthMode("register");
+                if (
+                  selectedPlatform === "organization" ||
+                  selectedPlatform === "workmasters"
+                ) {
+                  setSelectedPlatform("lms");
+                }
+              }}
               className={`rounded-full px-4 py-1.5 text-xs font-bold transition-all cursor-pointer ${
                 !isLogin
                   ? "bg-white text-gray-900 shadow-sm"
@@ -183,25 +207,44 @@ export function PlatformSelectModal({
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
           {PLATFORMS.map((platform) => {
             const Icon = platform.icon;
-            const isSelected = selectedPlatform === platform.id;
+            const isCardDisabled = isPlatformDisabled(platform.id);
+            const isSelected =
+              !isCardDisabled && effectivePlatform === platform.id;
 
             return (
               <div
                 key={platform.id}
                 onClick={() => {
+                  if (platform.id === "workmasters") {
+                    handleProceed("workmasters");
+                    return;
+                  }
+                  if (isCardDisabled) return;
                   setSelectedPlatform(platform.id);
                 }}
-                onDoubleClick={() => handleProceed(platform.id)}
-                className={`relative flex flex-col p-4 sm:p-5 rounded-2xl cursor-pointer transition-all duration-200 border text-left ${
-                  isSelected
-                    ? "bg-[#FFF8F0] border-[#F9A825] shadow-md shadow-[#F9A825]/10 scale-[1.01]"
-                    : "bg-white border-gray-200 hover:border-gray-300 hover:bg-gray-50/70"
+                onDoubleClick={() => {
+                  if (platform.id === "workmasters") {
+                    handleProceed("workmasters");
+                    return;
+                  }
+                  if (isCardDisabled) return;
+                  handleProceed(platform.id);
+                }}
+                aria-disabled={isCardDisabled && platform.id !== "workmasters"}
+                className={`relative flex flex-col p-4 sm:p-5 rounded-2xl transition-all duration-200 border text-left ${
+                  isCardDisabled && platform.id !== "workmasters"
+                    ? "bg-gray-50/70 border-gray-200 opacity-60 cursor-not-allowed select-none"
+                    : isSelected
+                    ? "bg-[#FFF8F0] border-[#F9A825] shadow-md shadow-[#F9A825]/10 scale-[1.01] cursor-pointer"
+                    : "bg-white border-gray-200 hover:border-gray-300 hover:bg-gray-50/70 cursor-pointer"
                 }`}
               >
                 <div className="flex items-center justify-between mb-2.5">
                   <div
                     className={`flex h-11 w-11 items-center justify-center rounded-xl transition-colors ${
-                      isSelected
+                      isCardDisabled
+                        ? "bg-gray-100 text-gray-400"
+                        : isSelected
                         ? "bg-[#F9A825] text-white"
                         : "bg-gray-100 text-gray-600"
                     }`}
@@ -210,26 +253,34 @@ export function PlatformSelectModal({
                   </div>
                   <span
                     className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md ${
-                      isSelected
+                      isCardDisabled
+                        ? "bg-amber-100 text-amber-800 border border-amber-200"
+                        : isSelected
                         ? "bg-[#F9A825]/20 text-[#B7791F]"
                         : "bg-gray-100 text-gray-500"
                     }`}
                   >
-                    {platform.badge}
+                    {isCardDisabled ? "Coming Soon" : platform.badge}
                   </span>
                 </div>
 
                 <div className="flex items-center justify-between">
                   <h3
                     className={`text-base font-bold transition-colors ${
-                      isSelected ? "text-[#1E1E1E]" : "text-gray-800"
+                      isCardDisabled
+                        ? "text-gray-400"
+                        : isSelected
+                        ? "text-[#1E1E1E]"
+                        : "text-gray-800"
                     }`}
                   >
                     {platform.title}
                   </h3>
                   <div
                     className={`h-4 w-4 rounded-full border flex items-center justify-center transition-all ${
-                      isSelected
+                      isCardDisabled
+                        ? "border-gray-300 bg-gray-100"
+                        : isSelected
                         ? "border-[#F9A825] bg-[#F9A825]"
                         : "border-gray-300 bg-white"
                     }`}
@@ -256,8 +307,13 @@ export function PlatformSelectModal({
 
           <button
             type="button"
-            onClick={() => handleProceed()}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 cursor-pointer rounded-xl bg-secondary px-8 py-3 text-xs sm:text-sm font-bold text-white shadow-md hover:bg-secondary-hover transition-all active:scale-[0.98]"
+            onClick={() => handleProceed(effectivePlatform)}
+            disabled={isPlatformDisabled(effectivePlatform)}
+            className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl px-8 py-3 text-xs sm:text-sm font-bold text-white transition-all ${
+              isPlatformDisabled(effectivePlatform)
+                ? "bg-gray-300 text-gray-500 cursor-not-allowed opacity-60"
+                : "bg-secondary hover:bg-secondary-hover shadow-md active:scale-[0.98] cursor-pointer"
+            }`}
           >
             <span>Proceed to {isLogin ? "Sign In" : "Register"}</span>
             <HiOutlineArrowNarrowRight className="w-4 h-4" />

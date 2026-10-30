@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import CountUp from "react-countup";
 import { TiStarFullOutline } from "react-icons/ti";
 import {
   heroImg1,
@@ -13,6 +14,7 @@ import {
   womanOnSystem,
   playIcon,
 } from "@/assets";
+import { useLmsPublicStats } from "@/features/public-stats";
 import { AuthMode } from "./PlatformSelectModal";
 
 interface MainHeroSectionProps {
@@ -20,6 +22,14 @@ interface MainHeroSectionProps {
 }
 
 export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
+  const { data: lmsStats } = useLmsPublicStats();
+
+  const learnersCount = lmsStats ? lmsStats.learners.total : null;
+  const publishedCoursesCount = lmsStats
+    ? lmsStats.unitOfferings.byStatus.published +
+      lmsStats.standaloneCourses.byStatus.published +
+      lmsStats.levelOfferings.byStatus.published
+    : null;
   return (
     <section className="w-full px-3 xs:px-4 sm:px-6 lg:px-8 xl:px-15 mx-auto pt-3 sm:pt-6 pb-6 sm:pb-8">
       <div className="relative overflow-hidden rounded-3xl sm:rounded-[36px] bg-[#FEEED3] border border-[#FEEAD4]/60 p-5 xs:p-6 sm:p-10 lg:p-14">
@@ -62,7 +72,16 @@ export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
                   5.0
                 </span>
                 <span className="text-[#333333] text-xs lg:text-sm font-medium">
-                  (2k+ Happy Learners)
+                  (
+                  {learnersCount !== null ? (
+                    <CountUp end={learnersCount} duration={2} separator="," />
+                  ) : (
+                    <span
+                      className="inline-block h-3.5 w-8 rounded bg-gray-200 animate-pulse align-middle"
+                      aria-hidden="true"
+                    />
+                  )}{" "}
+                  Happy Learners)
                 </span>
               </div>
             </div>
@@ -259,7 +278,19 @@ export function MainHeroSection({ onOpenAuthModal }: MainHeroSectionProps) {
                         />
                       </svg>
                       <span className="whitespace-nowrap font-bold text-[#222222]">
-                        2k+ Courses
+                        {publishedCoursesCount !== null ? (
+                          <CountUp
+                            end={publishedCoursesCount}
+                            duration={2}
+                            separator=","
+                          />
+                        ) : (
+                          <span
+                            className="inline-block h-3.5 sm:h-4 w-7 sm:w-9 rounded bg-black/15 animate-pulse align-middle"
+                            aria-hidden="true"
+                          />
+                        )}{" "}
+                        Courses
                       </span>
                     </motion.a>
                   </motion.div>
